@@ -1,0 +1,66 @@
+.navbar {
+    background-color: #2a68af;
+    height: 65px;
+}
+
+.logo-uff {
+    width: 268px;
+}
+
+.container-tabelas {    
+    border-top: 5px solid #2a68af;
+    padding-top: 1rem;
+    
+}
+
+.header img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+.header  {
+    height: 130px;
+}
+
+
+.texto-header {
+    position: relative;
+    top: -90px;
+    color: #FFF;
+    text-shadow: 2px 2px 2px #000000;   
+}
+
+.container-conteudo {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.menu-lateral {
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 7px -3px 15px 1px rgba(0,0,0,0.35);
+}
+
+.button-entrar-login {
+    background: #2a68af;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    padding: 6px 0;
+
+    /* texto */
+
+    font-weight: 800;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #2a68af;
+    font-weight: bold;
+}
+.nav-link {
+    color: #000000;
+}
+
+
