@@ -1,9 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <title>Login</title>
@@ -13,17 +10,19 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/style.css">
         <link rel="icon" type="image/x-icon" href="image/icons8-produto-16.png">
 
+
     </head>
     <body class="d-flex justify-content-center align-items-center ">
-        
+
         <div class="container-card-login " >
             <div class="card-login">
                 <h3 id="titulo-login">ESTOQUE</h3>
                 <p id="subtitulo-login">Entre abaixo com seus dados:</p>
                 <div class="card-body">
-                    <form id="login_form">                        
+                    <form id="login_form"  action="login" method="POST"> 
+
                         <div class="input-group mb-2 mr-sm-2">
-                            <input type="text" class="form-control texto-input" required id="cpf"
+                            <input type="text" class="form-control texto-input" required name="cpf" id="cpf"
 
                                    placeholder="Usuário">
                         </div>
@@ -32,9 +31,9 @@ and open the template in the editor.
                             <input type="password" class="form-control texto-input" required name="senha" id="senha"
                                    placeholder="Senha">
                         </div>                       
-                        <div class=" mt-3">
+                        <div class="mt-3">
                             <div>
-                                <button type="submit" class="button-entrar-login">Entrar</button>
+                                <button type="submit" value="login" class="button-entrar-login">Entrar</button>
                             </div>
                         </div>
                     </form>
@@ -45,10 +44,12 @@ and open the template in the editor.
 
             </div>
 
+
         </div>
-        
+
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
+

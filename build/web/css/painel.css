@@ -39,6 +39,8 @@
     background-color: #ffffff;
     min-height: 100vh;
     box-shadow: 7px -3px 15px 1px rgba(0,0,0,0.35);
+    width: 360px;
+    padding: .5rem;
 }
 
 .button-entrar-login {
@@ -62,5 +64,6 @@
 .nav-link {
     color: #000000;
 }
+
 
 
