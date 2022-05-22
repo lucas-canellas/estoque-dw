@@ -9,7 +9,7 @@ package model;
  *
  * @author lucas
  */
-public class Usuario {
+public class Funcionario {
 
     private Integer id;
     private String nome;
@@ -17,13 +17,12 @@ public class Usuario {
     private String senha;
     private Integer papel;
 
-    public Usuario() {
+    public Funcionario() {
 
     }
     
-    
 
-    public Usuario(String cpf, String senha) {
+    public Funcionario(String cpf, String senha) {
         this.cpf = cpf;
         this.senha = senha;
     }

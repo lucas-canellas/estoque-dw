@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">    
         <link rel="stylesheet" href="css/painel.css">
         <link rel="icon" type="image/x-icon" href="image/icons8-produto-16.png">
+        <link href="fontawesome-free-6.1.1-web/css/all.css" rel="stylesheet">
 
     </head>
     <body>
@@ -17,17 +18,9 @@
                 response.sendRedirect("index.jsp");
             }            
         %>
-        <div class="navbar ">            
-            <div class="container">
-                <img class="logo-uff" src="image/logouff_horizontal_branco_fundo_transparente.png" alt="Logo uff"/>
-                <a href="LogoutServlet"><div id="op3" class="dash_item">
-                        <span class="glyphicon glyphicon-log-out"></span>
-                        <p>Sair</p>
-                    </div></a>
-            </div>
-        </div>
+        <%@include file="navbar.jsp" %>
         <div class="d-flex">
-            <div class="menu-lateral">Sidebar</div>
+            <%@include file="sidebar.jsp" %>
             <div class="w-100">
                 <div class="header">
                     <img  src="image/header.jpg" alt="Header"/>
@@ -104,42 +97,42 @@
                                     </div>
                                 </div>
                             </form></div>
-                        <div class='tab-pane  fade' id='s3'><form class="form-group" >
+                        <div class='tab-pane  fade' id='s3'><form method="POST" action="CadastrarCliente" class="form-group" >
                                 <div>
                                     <label for="nome">Nome:</label>
-                                    <input class="form-control" type="text" id="nome" />
+                                    <input class="form-control" name="nome" type="text" id="nome" />
                                 </div>
                                 <div>
                                     <label for="cpf">CPF:</label>
-                                    <input  class="form-control" type="text" id="cpf" />
+                                    <input  class="form-control" name="cpf" type="text" id="cpf" />
                                 </div>
                                 <div>
                                     <label for="endereco">Endereço:</label>
-                                    <input class="form-control" type="text" id="endereco" />
+                                    <input class="form-control" name="endereco" type="text" id="endereco" />
                                 </div>
                                 <div>
                                     <label for="bairro">Bairro:</label>
-                                    <input class="form-control" type="text" id="bairro" />
+                                    <input class="form-control" name="bairro" type="text" id="bairro" />
                                 </div>
                                 <div>
                                     <label for="cidade">Cidade:</label>
-                                    <input class="form-control" type="text" id="cidade" />
+                                    <input class="form-control" name="cidade" type="text" id="cidade" />
                                 </div>
                                 <div>
                                     <label for="uf">UF:</label>
-                                    <input class="form-control" type="text" id="uf" />
+                                    <input class="form-control" name="uf" type="text" id="uf" />
                                 </div>
                                 <div>
                                     <label for="cep">CEP:</label>
-                                    <input class="form-control" type="text" id="cep" />
+                                    <input class="form-control" name="cep" type="text" id="cep" />
                                 </div>
                                 <div>
                                     <label for="telefone">Telefone:</label>
-                                    <input class="form-control" type="text" id="telefone" />
+                                    <input class="form-control" name="telefone" type="text" id="telefone" />
                                 </div>
                                 <div>
                                     <label for="email">Email:</label>
-                                    <input class="form-control" type="text" id="email" />
+                                    <input class="form-control" name="email" type="text" id="email" />
                                 </div>
                                 <div class=" mt-3">
                                     <div>
@@ -178,42 +171,42 @@
                                     </div>
                                 </div>
                             </form></div>
-                        <div class='tab-pane  fade' id='s5'><form class="form-group" >
+                        <div class='tab-pane  fade' id='s5'><form class="form-group" method="POST" action="CadastrarFornecedor" >
                                 <div>
                                     <label for="razao_social">Razão Social:</label>
-                                    <input class="form-control" type="text" id="razao_social" />
+                                    <input class="form-control" type="text" name="razao_social" id="razao_social" />
                                 </div>
                                 <div>
                                     <label for="cnpj">CNPJ:</label>
-                                    <input  class="form-control" type="text" id="cnpj" />
+                                    <input  class="form-control" type="text" name="cnpj" id="cnpj" />
                                 </div>
                                 <div>
                                     <label for="endereco">Endereço:</label>
-                                    <input class="form-control" type="text" id="endereco" />
+                                    <input class="form-control" type="text" name="endereco" id="endereco" />
                                 </div>
                                 <div>
                                     <label for="bairro">Bairro:</label>
-                                    <input class="form-control" type="text" id="bairro" />
+                                    <input class="form-control" type="text" name="bairro" id="bairro" />
                                 </div>
                                 <div>
                                     <label for="cidade">Cidade:</label>
-                                    <input class="form-control" type="text" id="cidade" />
+                                    <input class="form-control" type="text" name="cidade" id="cidade" />
                                 </div>
                                 <div>
                                     <label for="uf">UF:</label>
-                                    <input  class="form-control" type="text" id="uf" />
+                                    <input  class="form-control" type="text" name="uf" id="uf" />
                                 </div>
                                 <div>
                                     <label for="cep">CEP:</label>
-                                    <input class="form-control" type="text" id="cep" />
+                                    <input class="form-control" type="text" name="cep" id="cep" />
                                 </div>
                                 <div>
                                     <label for="telefone">Telefone:</label>
-                                    <input class="form-control" type="text" id="telefone" />
+                                    <input class="form-control" type="text" name="telefone" id="telefone" />
                                 </div>
                                 <div>
                                     <label for="email">Email:</label>
-                                    <input class="form-control" type="text" id="email" />
+                                    <input class="form-control" type="text" name="email" id="email" />
                                 </div>
                                 <div class=" mt-3">
                                     <div>

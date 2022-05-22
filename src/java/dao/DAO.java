@@ -16,13 +16,15 @@ public class DAO {
         } catch (SQLException e) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, e);
         }
-    }
-
-    protected void fechar() {
+    } 
+    
+        protected void fechar() {
         try {
+            if(Conexao.criaConexao() == null ){
             stm.close();
             Conexao.criaConexao().close();
             System.out.println("Conexão Fechada");
+            }
         } catch (SQLException e) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, e);
         }

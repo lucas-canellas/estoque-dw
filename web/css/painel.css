@@ -36,7 +36,7 @@
 }
 
 .menu-lateral {
-    background-color: #ffffff;
+    background-color: #fff;
     min-height: 100vh;
     box-shadow: 7px -3px 15px 1px rgba(0,0,0,0.35);
     width: 360px;
@@ -65,5 +65,14 @@
     color: #000000;
 }
 
+.arrow-icone {
+    width: 10px;
+    object-fit: cover;
+}
+
+#fornecedores, #funcionarios {
+    background-color: #0069d910;
+    border-radius: 15px;
+}
 
 

@@ -1,7 +1,7 @@
 package controller;
 
 import connection.Conexao;
-import dao.UsuarioDAO;
+import dao.FuncionarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Usuario;
+import model.Funcionario;
 
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
@@ -29,21 +29,20 @@ public class login extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             String cpf = request.getParameter("cpf");
             String senha = request.getParameter("senha");
-            Usuario user = new Usuario(cpf, senha);
-            UsuarioDAO dao = new UsuarioDAO();
+            Funcionario user = new Funcionario(cpf, senha);
+            FuncionarioDAO dao = new FuncionarioDAO();
 
-            if (dao.validarUsuario(user)) {
+            if (dao.validarFuncionario(user)) {
                 request.getSession(true).setAttribute("user_id", user.getNome());
                 Cookie userName = new Cookie("username", user.getCpf());
                 response.addCookie(userName);
-//                request.getRequestDispatcher("painel.jsp").forward(request, response);
                 response.sendRedirect("painel.jsp");
             } else {                
                 request.setAttribute("falha", "Erro de autenticação");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
 
-//            }
+            
         } catch (Exception e) {
         }
 
