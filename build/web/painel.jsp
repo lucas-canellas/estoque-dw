@@ -13,10 +13,10 @@
     </head>
     <body>
         <%
-            String usuario = (String) session.getAttribute("user_id");
-            if (usuario == null) {
+            String ativo = (String) session.getAttribute("ativo");
+            if (ativo == null) {
                 response.sendRedirect("index.jsp");
-            }            
+            }           
         %>
         <%@include file="navbar.jsp" %>
         <div class="d-flex">

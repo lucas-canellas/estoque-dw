@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.ClienteDAO;
 import dao.FornecedorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,26 +17,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author lucas
  */
-@WebServlet(name = "ListarFornecedores", urlPatterns = {"/fornecedores"})
-public class ListarFornecedores extends HttpServlet {
+@WebServlet(name = "ListarClientes", urlPatterns = {"/clientes"})
+public class ListarClientes extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {     
-            FornecedorDAO dao = new FornecedorDAO();
-            request.getSession(true).setAttribute("fornecedores", dao.listarFornecedor());
+            ClienteDAO dao = new ClienteDAO();
+            request.getSession(true).setAttribute("clientes", dao.listarCliente());
             
-            response.sendRedirect("fornecedores.jsp");
+            response.sendRedirect("clientes.jsp");
         } catch (SQLException ex) {
             Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+   
 }

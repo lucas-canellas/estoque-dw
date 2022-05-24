@@ -22,20 +22,23 @@ import javax.servlet.http.HttpSession;
  *
  * @author lucas
  */
-@WebServlet(name = "ListarFornecedores", urlPatterns = {"/fornecedores"})
-public class ListarFornecedores extends HttpServlet {
+@WebServlet(name = "RemoverFornecedor", urlPatterns = {"/RemoverFornecedor"})
+public class RemoverFornecedor extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        try {     
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession(false);
+        try {
             FornecedorDAO dao = new FornecedorDAO();
-            request.getSession(true).setAttribute("fornecedores", dao.listarFornecedor());
-            
-            response.sendRedirect("fornecedores.jsp");
+            int fornecedor = Integer.parseInt(request.getParameter("id"));
+            dao.removerFornecedor(fornecedor);
+            response.sendRedirect("fornecedores");
         } catch (SQLException ex) {
-            Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RemoverFornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
 }

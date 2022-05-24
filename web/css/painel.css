@@ -3,6 +3,8 @@
     height: 65px;
 }
 
+
+
 .logo-uff {
     width: 268px;
 }
@@ -70,9 +72,16 @@
     object-fit: cover;
 }
 
-#fornecedores, #funcionarios {
+#fornecedores, #funcionarios, #clientes {
     background-color: #0069d910;
     border-radius: 15px;
+}
+
+.icon-logout {
+    width: 23px; 
+    color: #FFF; 
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 

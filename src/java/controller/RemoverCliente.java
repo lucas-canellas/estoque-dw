@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.ClienteDAO;
 import dao.FornecedorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,20 +23,22 @@ import javax.servlet.http.HttpSession;
  *
  * @author lucas
  */
-@WebServlet(name = "ListarFornecedores", urlPatterns = {"/fornecedores"})
-public class ListarFornecedores extends HttpServlet {
+@WebServlet(name = "RemoverCliente", urlPatterns = {"/RemoverCliente"})
+public class RemoverCliente extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        try {     
-            FornecedorDAO dao = new FornecedorDAO();
-            request.getSession(true).setAttribute("fornecedores", dao.listarFornecedor());
-            
-            response.sendRedirect("fornecedores.jsp");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession(false);
+        try {
+            ClienteDAO dao = new ClienteDAO();
+            int cliente = Integer.parseInt(request.getParameter("id"));
+            dao.removerCliente(cliente);
+            response.sendRedirect("clientes");
         } catch (SQLException ex) {
-            Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RemoverFornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
 
+    }
 }

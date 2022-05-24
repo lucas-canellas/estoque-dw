@@ -1,9 +1,8 @@
 package controller;
 
-import dao.ClienteDAO;
+
 import dao.FornecedorDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Cliente;
 import model.Fornecedor;
 
 
@@ -40,7 +38,7 @@ public class CadastrarFornecedor extends HttpServlet {
 
         try {
             dao.cadastrarFornecedor(fornecedor);
-            response.sendRedirect("painel.jsp");
+            response.sendRedirect("fornecedores");
         } catch (SQLException ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }

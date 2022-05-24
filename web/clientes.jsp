@@ -1,11 +1,11 @@
-<%@page import="model.Fornecedor"%>
+<%@page import="model.Cliente"%>
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Fornecedores</title>
+        <title>Clientes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">    
@@ -20,19 +20,19 @@
             <div class="w-100">
                 <div class="header">
                     <img  src="image/header.jpg" alt="Header"/>
-                    <h1 class="container texto-header">Estoque</h1>
+                    <h1 class="container texto-header">Clientes</h1>
                 </div>
 
                 <div class="container mt-5">
-                    <h2>Fornecedores</h2>
+                    
                                
                     <div class="card">
                         <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Razão Social</th>
-                                <th>CNPJ</th>
+                                <th>Nome</th>
+                                <th>CPF</th>
                                 <th>Endereço</th>
                                 <th>Bairro</th>
                                 <th>Cidade</th>
@@ -45,19 +45,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${fornecedores}" var="fornecedores">
+                            <c:forEach items="${clientes}" var="clientes">
                             <tr>
-                                <td><c:out value="${fornecedores.id}" /></td>
-                                <td><c:out value="${fornecedores.razao_social}" /></td>
-                                <td><c:out value="${fornecedores.cnpj}" /></td>
-                                <td><c:out value="${fornecedores.endereco}" /></td>
-                                <td><c:out value="${fornecedores.bairro}" /></td>
-                                <td><c:out value="${fornecedores.cidade}" /></td>
-                                <td><c:out value="${fornecedores.uf}" /></td>
-                                <td><c:out value="${fornecedores.cep}" /></td>
-                                <td><c:out value="${fornecedores.telefone}" /></td>
-                                <td><c:out value="${fornecedores.email}" /></td>
-                                <td><a type="button" href="fornecedor?id=${fornecedores.id}" class="btn btn-primary mr-1">Editar</a><a href="RemoverFornecedor?id=<c:out value="${fornecedores.id}" />" type="button" class="btn btn-danger">Deletar</a></td>
+                                <td><c:out value="${clientes.id}" /></td>
+                                <td><c:out value="${clientes.nome}" /></td>
+                                <td><c:out value="${clientes.cpf}" /></td>
+                                <td><c:out value="${clientes.endereco}" /></td>
+                                <td><c:out value="${clientes.bairro}" /></td>
+                                <td><c:out value="${clientes.cidade}" /></td>
+                                <td><c:out value="${clientes.uf}" /></td>
+                                <td><c:out value="${clientes.cep}" /></td>
+                                <td><c:out value="${clientes.telefone}" /></td>
+                                <td><c:out value="${clientes.email}" /></td>
+                                <td><a type="button" href="cliente?id=${clientes.id}" class="btn btn-primary mr-1">Editar</a><a href="RemoverCliente?id=<c:out value="${clientes.id}" />" type="button" class="btn btn-danger">Deletar</a></td>
                             </tr>
                             </c:forEach>
                             
