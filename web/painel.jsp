@@ -16,7 +16,7 @@
             String ativo = (String) session.getAttribute("ativo");
             if (ativo == null) {
                 response.sendRedirect("index.jsp");
-            }           
+            }        
         %>
         <%@include file="navbar.jsp" %>
         <div class="d-flex">

@@ -27,8 +27,8 @@ public class Login extends HttpServlet {
 
             if (dao.validarFuncionario(user)) {
                 request.getSession(true).setAttribute("ativo", "ativo");
-                Cookie userName = new Cookie("username", user.getCpf());
-                response.addCookie(userName);
+                Cookie papel = new Cookie("papel", String.valueOf(user.getPapel()));
+                response.addCookie(papel);
                 response.sendRedirect("painel.jsp");
             } else {                
                 request.setAttribute("falha", "Erro de autenticação");

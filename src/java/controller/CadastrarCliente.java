@@ -44,7 +44,7 @@ public class CadastrarCliente extends HttpServlet {
 
         try {
             dao.cadastrarCliente(cliente);            
-            response.sendRedirect("painel.jsp");
+            response.sendRedirect("clientes");
         } catch (SQLException ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }

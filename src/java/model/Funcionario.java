@@ -15,16 +15,25 @@ public class Funcionario {
     private String nome;
     private String cpf;
     private String senha;
-    private Integer papel;
+    private String papel;
 
     public Funcionario() {
 
     }
     
-
-    public Funcionario(String cpf, String senha) {
+        public Funcionario(String cpf, String senha) {
+        
         this.cpf = cpf;
         this.senha = senha;
+        
+    }
+    
+
+    public Funcionario(String cpf, String senha, String nome, String papel) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.papel = papel;
     }
 
     /**
@@ -86,19 +95,17 @@ public class Funcionario {
     /**
      * @return the papel
      */
-    public Integer getPapel() {
+    public String getPapel() {
         return papel;
     }
 
     /**
      * @param papel the papel to set
      */
-    public void setPapel(Integer papel) {
+    public void setPapel(String papel) {
         this.papel = papel;
     }
     
     
-
-   
 
 }

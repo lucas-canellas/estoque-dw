@@ -23,42 +23,43 @@
                     <h1 class="container texto-header">Cadastrar clientes</h1>
                 </div>
 
-                <div class="card container mt-5">              <form method="POST" action="CadastrarCliente" class="form-group" >
+                <div class="card container mt-5">              
+                    <form name="form-cadastro-cliente" method="POST" onsubmit="return validateForm()"  action="CadastrarCliente" class="form-group" >
                         <div>
                             <label for="nome">Nome:</label>
-                            <input class="form-control" name="nome" type="text" id="nome" />
+                            <input class="form-control" name="nome" required maxlength="50" type="text" id="nome" />
                         </div>
                         <div>
                             <label for="cpf">CPF:</label>
-                            <input  class="form-control" name="cpf" type="text" id="cpf" />
+                            <input  class="form-control cpf" name="cpf" required type="text" id="cpf" />
                         </div>
                         <div>
                             <label for="endereco">Endereço:</label>
-                            <input class="form-control" name="endereco" type="text" id="endereco" />
+                            <input class="form-control" name="endereco" maxlength="50" required type="text" id="endereco" />
                         </div>
                         <div>
                             <label for="bairro">Bairro:</label>
-                            <input class="form-control" name="bairro" type="text" id="bairro" />
+                            <input class="form-control" name="bairro" maxlength="50" required type="text" id="bairro" />
                         </div>
                         <div>
                             <label for="cidade">Cidade:</label>
-                            <input class="form-control" name="cidade" type="text" id="cidade" />
+                            <input class="form-control" name="cidade" maxlength="50" required type="text" id="cidade" />
                         </div>
                         <div>
                             <label for="uf">UF:</label>
-                            <input class="form-control" name="uf" type="text" id="uf" />
+                            <input class="form-control" name="uf" maxlength="2" required type="text" id="uf" />
                         </div>
                         <div>
                             <label for="cep">CEP:</label>
-                            <input class="form-control" name="cep" type="text" id="cep" />
+                            <input class="form-control" name="cep" required type="text" id="cep" />
                         </div>
                         <div>
                             <label for="telefone">Telefone:</label>
-                            <input class="form-control" name="telefone" type="text" id="telefone" />
+                            <input class="form-control" name="telefone" required type="text" id="telefone" />
                         </div>
                         <div>
                             <label for="email">Email:</label>
-                            <input class="form-control" name="email" type="text" id="email" />
+                            <input class="form-control" name="email" maxlength="50" required type="email" id="email" />
                         </div>
                         <div class=" mt-3">
                             <div>
@@ -69,8 +70,12 @@
 
             </div>
         </div>
+        
+        
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.mask.js"></script>
+        <script src="js/validacao.js"></script>
     </body>
 </html>

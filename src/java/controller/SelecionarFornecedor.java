@@ -27,6 +27,7 @@ import model.Funcionario;
 @WebServlet(name = "SelecionarFornecedor", urlPatterns = {"/fornecedor"})
 public class SelecionarFornecedor extends HttpServlet {
 
+    
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {

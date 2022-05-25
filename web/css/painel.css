@@ -41,7 +41,7 @@
     background-color: #fff;
     min-height: 100vh;
     box-shadow: 7px -3px 15px 1px rgba(0,0,0,0.35);
-    width: 360px;
+    width: 262px;
     padding: .5rem;
 }
 
@@ -72,7 +72,7 @@
     object-fit: cover;
 }
 
-#fornecedores, #funcionarios, #clientes {
+#fornecedores, #funcionarios, #clientes, #produtos {
     background-color: #0069d910;
     border-radius: 15px;
 }
@@ -83,5 +83,10 @@
     object-fit: cover;
     flex-shrink: 0;
 }
+
+.nav-link {
+    font-size: 14px;
+}
+
 
 
