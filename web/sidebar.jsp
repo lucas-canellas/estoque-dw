@@ -3,7 +3,6 @@
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="active nav-item">
             <a href="painel.jsp" class="active nav-link" aria-current="page">
-
                 Home
             </a>
         </li>
@@ -81,6 +80,7 @@
             <ul class="sub-menu collapse" id="produtos" style="">
                 <li><a class="nav-link link-dark" href="categorias">Listar categorias</a></li> 
                 <li><a class="nav-link link-dark" href="cadastrar-categoria.jsp">Cadastrar categoria</a></li>
+                <li><a class="nav-link link-dark" href="cadastrar-compra-produto.jsp">Cadastrar compra</a></li>
             </ul>
         </li>
 

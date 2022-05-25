@@ -1,6 +1,6 @@
 .navbar {
     background-color: #2a68af;
-    height: 65px;
+    height: 45px;
 }
 
 
@@ -17,17 +17,17 @@
 
 .header img {
     width: 100%;
-    height: 130px;
+    height: 100px;
     object-fit: cover;
 }
 .header  {
-    height: 130px;
+    height: 100px;
 }
 
 
 .texto-header {
     position: relative;
-    top: -90px;
+    top: -77px;
     color: #FFF;
     text-shadow: 2px 2px 2px #000000;   
 }
