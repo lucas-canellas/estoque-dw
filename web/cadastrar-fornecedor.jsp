@@ -14,14 +14,12 @@
     </head>
     <body>
 
-        <%@include file="navbar.jsp" %>
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>
+            <%@include file="sidebar.jsp" %>        
             <div class="w-100">
-                <div class="header">
-                    <img  src="image/header.jpg" alt="Header"/>
-                    <h1 class="container texto-header">Estoque</h1>
-                </div>
+                <%@include file="navbar.jsp" %>
+            <div class="w-100">
+
                 
                 <div class="card container mt-5">  <h1>Cadastrar fornecedor</h1>             <form class="form-group" method="POST" action="CadastrarFornecedor" >
                         <div>
@@ -65,7 +63,7 @@
                                 <button type="submit" class="button-entrar-login">Enviar</button>
                             </div>
                         </div>
-                    </form></div>
+                    </form></div></div>
 
             </div>
         </div>

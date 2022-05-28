@@ -40,6 +40,7 @@ public class CadastrarCategoria extends HttpServlet {
         try {
             dao.cadastrarCategoria(categoria);
             response.sendRedirect("categorias");
+            
         } catch (SQLException ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }

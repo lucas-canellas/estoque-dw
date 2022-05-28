@@ -14,58 +14,60 @@
     </head>
     <body>
 
-        <%@include file="navbar.jsp" %>
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>
+            <%@include file="sidebar.jsp" %>        
             <div class="w-100">
-                <div class="header">
-                    <img  src="image/header.jpg" alt="Header"/>
-                    <h1 class="container texto-header">Estoque</h1>
-                </div>
-                
-                <div class="card container mt-5">  <h1>Cadastrar Compra</h1>             <form class="form-group" method="POST" action="CadastrarFornecedor" >
+                <%@include file="navbar.jsp" %>
+            <div class="w-100">
+
+
+                <div class="card container mt-5">  <h1>Cadastrar Compra</h1>             
+                    <form class="form-group" method="POST" action="cadastro-compra" >
                         <div>
-                            <label for="razao_social">Razão Social:</label>
-                            <input class="form-control" type="text" name="razao_social" id="razao_social" />
+                            <label for="quantidade_venda">Quantidade:</label>
+                            <input class="form-control" type="text" name="quantidade_compra" id="quantidade_compra" />
                         </div>
                         <div>
-                            <label for="cnpj">CNPJ:</label>
-                            <input  class="form-control" type="text" name="cnpj" id="cnpj" />
+                            <label for="data_compra">Data da compra:</label>
+                            <input class="form-control" type="text" name="data_compra" id="data_compra" />
                         </div>
                         <div>
-                            <label for="endereco">Endereço:</label>
-                            <input class="form-control" type="text" name="endereco" id="endereco" />
+                            <label for="valor_compra">Valor da compra::</label>
+                            <input class="form-control" type="text" name="valor_compra"  id="valor_compra" />
                         </div>
                         <div>
-                            <label for="bairro">Bairro:</label>
-                            <input class="form-control" type="text" name="bairro" id="bairro" />
+                            <label for="id_fornecedor">Fornecedor:</label>
+                            <select class="form-control" name="id_fornecedor" aria-label="Default select example">
+                                <option selected>Selecione a fornecedor</option>                                
+                                <c:forEach var="fornecedor" items="${fornecedores}" varStatus="id">
+                                    <option value="${fornecedor.id}">${fornecedor.razao_social}</option>                                    
+                                </c:forEach>  
+                            </select>
                         </div>
                         <div>
-                            <label for="cidade">Cidade:</label>
-                            <input class="form-control" type="text" name="cidade" id="cidade" />
+                            <label for="id_produto">Produto:</label>
+                            <select class="form-control" name="id_produto" aria-label="Default select example">
+                                <option selected>Selecione o produto</option>                                
+                                <c:forEach var="produto" items="${produtos}" varStatus="id">
+                                    <option value="${produto.id}">${produto.nome_produto}</option>                                    
+                                </c:forEach>  
+                            </select>
                         </div>
                         <div>
-                            <label for="uf">UF:</label>
-                            <input  class="form-control" type="text" name="uf" id="uf" />
-                        </div>
-                        <div>
-                            <label for="cep">CEP:</label>
-                            <input class="form-control" type="text" name="cep" id="cep" />
-                        </div>
-                        <div>
-                            <label for="telefone">Telefone:</label>
-                            <input class="form-control" type="text" name="telefone" id="telefone" />
-                        </div>
-                        <div>
-                            <label for="email">Email:</label>
-                            <input class="form-control" type="text" name="email" id="email" />
+                            <label for="id_funcionario">Funcionário:</label>
+                            <select class="form-control" name="id_funcionario" aria-label="Default select example">
+                                <option selected>Selecione o funcionário</option>                                
+                                <c:forEach var="funcionario" items="${funcionarios}" varStatus="id">
+                                    <option value="${funcionario.id}">${funcionario.nome}</option>                                    
+                                </c:forEach>  
+                            </select>
                         </div>
                         <div class=" mt-3">
                             <div>
                                 <button type="submit" class="button-entrar-login">Enviar</button>
                             </div>
                         </div>
-                    </form></div>
+                    </form></div></div>
 
             </div>
         </div>

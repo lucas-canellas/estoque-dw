@@ -39,7 +39,10 @@ public class CadastrarFuncionario extends HttpServlet {
         
        Funcionario funcionario = new Funcionario(nome, cpf, senha,papel );
        FuncionarioDAO dao = new FuncionarioDAO();
-
+         System.out.println(nome);
+         System.out.println(cpf);
+         System.out.println(senha);
+         System.out.println(papel);
         try {
             dao.cadastrarFuncionario(funcionario);
             response.sendRedirect("funcionarios");

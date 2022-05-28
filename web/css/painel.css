@@ -3,6 +3,16 @@
     height: 45px;
 }
 
+.dashboard-wrapper {
+    padding: 5px 0;
+}
+
+.dashboard {
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 0 !important;
+    margin-left: 14px;
+}
 
 
 .logo-uff {
@@ -40,7 +50,6 @@
 .menu-lateral {
     background-color: #fff;
     min-height: 100vh;
-    box-shadow: 7px -3px 15px 1px rgba(0,0,0,0.35);
     width: 262px;
     padding: .5rem;
 }
@@ -87,6 +96,13 @@
 .nav-link {
     font-size: 14px;
 }
+
+.card {
+    border-top: 5px solid #2a68af;
+    overflow-x: auto;
+}
+
+
 
 
 

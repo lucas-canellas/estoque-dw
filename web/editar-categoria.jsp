@@ -13,14 +13,12 @@
 
     </head>
     <body>
-        <%@include file="navbar.jsp" %>
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>
+            <%@include file="sidebar.jsp" %>        
             <div class="w-100">
-                <div class="header">
-                    <img  src="image/header.jpg" alt="Header"/>
-                    <h1 class="container texto-header">Estoque</h1>
-                </div>
+                <%@include file="navbar.jsp" %>
+            <div class="w-100">
+
 
                 <div class="card container mt-5">  <h1>Editar Categoria</h1>             
                     <form class="form-group" method="POST" action="EditarCategoria" >
@@ -35,7 +33,7 @@
                             </div>
                         </div>
                     </form></div>
-
+</div>
             </div>
         </div>
         <script src="jquery-3.4.1.min.js"></script>

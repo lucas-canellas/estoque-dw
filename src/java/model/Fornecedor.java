@@ -29,6 +29,8 @@ public class Fornecedor {
         this.email = email;
     }
 
+   
+
     /**
      * @return the id
      */

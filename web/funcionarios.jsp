@@ -13,18 +13,13 @@
 
     </head>
     <body>
-        <%@include file="navbar.jsp" %>
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>
+            <%@include file="sidebar.jsp" %>        
             <div class="w-100">
-                <div class="header">
-                    <img  src="image/header.jpg" alt="Header"/>
-                    <h1 class="container texto-header">Funcionarios</h1>
-                </div>
+                <%@include file="navbar.jsp" %>
+            <div class="w-100">
 
                 <div class="container mt-5">
-
-
                     <div class="card">
                         <table class="table table-striped">
                             <thead>
@@ -57,7 +52,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div></div>
 
             </div>
         </div>

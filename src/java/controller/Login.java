@@ -24,9 +24,20 @@ public class Login extends HttpServlet {
             String senha = request.getParameter("senha");
             Funcionario user = new Funcionario(cpf, senha);
             FuncionarioDAO dao = new FuncionarioDAO();
-
+            
             if (dao.validarFuncionario(user)) {
-                request.getSession(true).setAttribute("ativo", "ativo");
+                
+                if (user.getPapel().equals("0")) {
+                    request.getSession(true).setAttribute("papel", "Administrador");
+                } else if (user.getPapel().equals("1")) {
+                    request.getSession(true).setAttribute("papel", "Vendedor");
+                } else if (user.getPapel().equals("2")) {
+                    request.getSession(true).setAttribute("papel", "Comprador");
+                }               
+                
+                
+                request.getSession(true).setAttribute("ativo", "ativo");                
+                request.getSession(true).setAttribute("nome", user.getNome());
                 Cookie papel = new Cookie("papel", String.valueOf(user.getPapel()));
                 response.addCookie(papel);
                 response.sendRedirect("painel.jsp");

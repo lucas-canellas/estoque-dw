@@ -29,7 +29,7 @@ public class Funcionario {
     }
     
 
-    public Funcionario(String cpf, String senha, String nome, String papel) {
+    public Funcionario(String nome, String cpf, String senha, String papel) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;

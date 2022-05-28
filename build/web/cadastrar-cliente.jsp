@@ -14,15 +14,11 @@
     </head>
     <body>
 
-        <%@include file="navbar.jsp" %>
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>
+            <%@include file="sidebar.jsp" %>        
             <div class="w-100">
-                <div class="header">
-                    <img  src="image/header.jpg" alt="Header"/>
-                    <h1 class="container texto-header">Cadastrar clientes</h1>
-                </div>
-
+                <%@include file="navbar.jsp" %>
+            <div class="w-100">
                 <div class="card container mt-5">              
                     <form name="form-cadastro-cliente" method="POST" onsubmit="return validateForm()"  action="CadastrarCliente" class="form-group" >
                         <div>
@@ -69,7 +65,7 @@
                     </form></div>
 
             </div>
-        </div>
+        </div></div>
         
         
         <script src="jquery-3.4.1.min.js"></script>
