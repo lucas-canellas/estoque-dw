@@ -2,6 +2,7 @@ package controller;
 
 import dao.FuncionarioDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -27,13 +28,19 @@ public class Login extends HttpServlet {
             
             if (dao.validarFuncionario(user)) {
                 
-                if (user.getPapel().equals("0")) {
-                    request.getSession(true).setAttribute("papel", "Administrador");
-                } else if (user.getPapel().equals("1")) {
-                    request.getSession(true).setAttribute("papel", "Vendedor");
-                } else if (user.getPapel().equals("2")) {
-                    request.getSession(true).setAttribute("papel", "Comprador");
-                }               
+                switch (user.getPapel()) {
+                    case "0":
+                        request.getSession(true).setAttribute("papel", "Administrador");
+                        break;
+                    case "1":
+                        request.getSession(true).setAttribute("papel", "Vendedor");
+                        break;               
+                    case "2":
+                        request.getSession(true).setAttribute("papel", "Comprador");
+                        break;
+                    default:
+                        break;
+                }
                 
                 
                 request.getSession(true).setAttribute("ativo", "ativo");                
@@ -47,7 +54,7 @@ public class Login extends HttpServlet {
             }
 
             
-        } catch (Exception e) {
+        } catch (IOException | SQLException | ServletException e) {
         }
 
 

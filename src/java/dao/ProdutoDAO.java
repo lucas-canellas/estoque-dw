@@ -32,6 +32,19 @@ public class ProdutoDAO extends DAO {
         fechar();
 
     }
+    
+        public void alterarLiberacao(Produto produto) throws SQLException {
+        String sql = "UPDATE produtos SET liberado_venda = ? WHERE id = ? ";
+
+        conectar(sql);
+
+        stm.setString(1, produto.getLiberado_venda());
+
+
+        stm.setInt(2, produto.getId());
+        stm.execute();
+        fechar();
+    }
 
     public List<Produto> listarProduto() throws SQLException {
 

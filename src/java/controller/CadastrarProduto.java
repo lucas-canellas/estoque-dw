@@ -5,10 +5,8 @@
  */
 package controller;
 
-import dao.FornecedorDAO;
 import dao.ProdutoDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,16 +15,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Fornecedor;
 import model.Produto;
 
 /**
  *
  * @author lucas
  */
-@WebServlet(name = "CadastrarProduto", urlPatterns = {"/cadastrar-produto"})
+@WebServlet(name = "CadastrarProduto2", urlPatterns = {"/CadastrarProduto2"})
 public class CadastrarProduto extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

@@ -99,8 +99,8 @@
                 <li><a class="nav-link link-dark" href="categorias">Listar categorias</a></li> 
                 <li><a class="nav-link link-dark" href="cadastrar-categoria.jsp">Cadastrar categoria</a></li>
                 <li><a class="nav-link link-dark" href="cadastrar-compra-produto">Cadastrar compra</a></li>
-                <li><a class="nav-link link-dark" href="pagina-cadastrar-produto">Cadastrar produto</a></li>
-                <li><a class="nav-link link-dark" href="pagina-cadastrar-venda">Cadastrar venda</a></li>
+                <li><a class="nav-link link-dark" href="PageCadastarProduto">Cadastrar produto</a></li>
+                <li><a class="nav-link link-dark" href="ListarProdutos">Listar produto</a></li>
             </ul>
         </li>
 

@@ -22,12 +22,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lucas
  */
-@WebServlet(name = "CadastrarProduto", urlPatterns = {"/pagina-cadastrar-produto"})
-public class CadastrarProduto extends HttpServlet {
+@WebServlet(name = "PageCadastarProduto", urlPatterns = {"/PageCadastarProduto"})
+public class PageCadastarProduto extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+      
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         try {     
             CategoriaDAO dao = new CategoriaDAO();
             request.getSession(true).setAttribute("categorias", dao.listarCategoria());
@@ -37,5 +37,6 @@ public class CadastrarProduto extends HttpServlet {
             Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 
 }

@@ -39,11 +39,6 @@ public class EditarFuncionario extends HttpServlet {
         String senha = request.getParameter("senha");
         String papel = request.getParameter("papel");
 
-            System.out.println(request.getParameter("id"));
-            System.out.println(request.getParameter("nome"));
-            System.out.println(request.getParameter("cpf"));
-            System.out.println(request.getParameter("senha"));
-            System.out.println(request.getParameter("papel"));
         try {
             funcionario.setId(Integer.parseInt(id));
             funcionario.setNome(nome);

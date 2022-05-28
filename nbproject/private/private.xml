@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/model/Venda.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/dao/ProdutoDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/model/Categoria.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/web/sidebar.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/controller/CadastarCompra.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/web/cadastrar-produto.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/controller/CadastroVenda.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/model/Compra.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/dao/VendaDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/controller/CadastrarProduto.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/controller/pages/CadastrarProduto.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/controller/pages/CadastrarVenda.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/estoque/src/java/controller/pages/CadastroCompra.java</file>
         </group>
     </open-files>
 </project-private>

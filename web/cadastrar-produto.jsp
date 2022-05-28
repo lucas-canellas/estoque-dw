@@ -22,7 +22,7 @@
 
 
                 <div class="card container mt-5">  <h1>Cadastrar produto</h1>             
-                    <form class="form-group" method="POST" action="cadastrar-produto" >
+                    <form class="form-group" method="POST" action="CadastrarProduto2" >
                         <div>
                             <label for="nome_produto">Nome:</label>
                             <input class="form-control" type="text" name="nome_produto"   id="nome_produto" />

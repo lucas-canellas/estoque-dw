@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.pages;
+package controller;
 
-import controller.ListarFornecedores;
 import dao.CategoriaDAO;
+import dao.ProdutoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -22,17 +22,17 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lucas
  */
-@WebServlet(name = "CadastrarProduto", urlPatterns = {"/pagina-cadastrar-produto"})
-public class CadastrarProduto extends HttpServlet {
+@WebServlet(name = "ListarProdutos", urlPatterns = {"/ListarProdutos"})
+public class ListarProdutos extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try {     
-            CategoriaDAO dao = new CategoriaDAO();
-            request.getSession(true).setAttribute("categorias", dao.listarCategoria());
-            
-            response.sendRedirect("cadastrar-produto.jsp");
+
+        try {
+            ProdutoDAO dao = new ProdutoDAO();
+            request.getSession(true).setAttribute("produtos", dao.listarProduto());
+
+            response.sendRedirect("produtos.jsp");
         } catch (SQLException ex) {
             Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -6,49 +6,47 @@
 package controller;
 
 import dao.CategoriaDAO;
-import dao.FornecedorDAO;
-import dao.FuncionarioDAO;
+import dao.ProdutoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Categoria;
-import model.Fornecedor;
-import model.Funcionario;
+import model.Produto;
 
 /**
  *
  * @author lucas
  */
-@WebServlet(name = "EditarCategoria", urlPatterns = {"/EditarCategoria"})
-public class EditarCategoria extends HttpServlet {
+@WebServlet(name = "EditarProduto", urlPatterns = {"/EditarProduto"})
+public class EditarProduto extends HttpServlet {
 
-     protected void service(HttpServletRequest request, HttpServletResponse response)
+  protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Categoria categoria = new Categoria();
-        CategoriaDAO dao = new CategoriaDAO();
+        Produto produto = new Produto();
+        ProdutoDAO dao = new ProdutoDAO();
         
         String id = request.getParameter("id");
-        String nome_categoria = request.getParameter("nome_categoria");
+        String liberado_venda = request.getParameter("liberado_venda");
 
         
         try {
-            categoria.setId(Integer.parseInt(id));
-            categoria.setNome_categoria(nome_categoria);            
-            dao.editarCategoria(categoria);
-            response.sendRedirect("categorias");
+            produto.setId(Integer.parseInt(id));
+            produto.setLiberado_venda(liberado_venda);            
+            dao.alterarLiberacao(produto);
+            response.sendRedirect("ListarProdutos");
         } catch (SQLException ex) {
             Logger.getLogger(EditarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+
 
 }
