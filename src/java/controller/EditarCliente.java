@@ -17,7 +17,8 @@ import model.Cliente;
 @WebServlet(name = "EditarCliente", urlPatterns = {"/EditarCliente"})
 public class EditarCliente extends HttpServlet {
 
-   protected void service(HttpServletRequest request, HttpServletResponse response)
+   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Cliente cliente = new Cliente();

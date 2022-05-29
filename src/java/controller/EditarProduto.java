@@ -27,7 +27,8 @@ import model.Produto;
 @WebServlet(name = "EditarProduto", urlPatterns = {"/EditarProduto"})
 public class EditarProduto extends HttpServlet {
 
-  protected void service(HttpServletRequest request, HttpServletResponse response)
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Produto produto = new Produto();

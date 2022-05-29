@@ -59,14 +59,14 @@ public class FuncionarioDAO extends DAO {
         return lista;
 
     }
-    
-        public void editarFuncionario(Funcionario funcionario) throws SQLException {
+
+    public void editarFuncionario(Funcionario funcionario) throws SQLException {
         String sql = "UPDATE funcionarios SET nome = ?, cpf = ?, senha = ?, papel = ? WHERE id = ? ";
         conectar(sql);
         stm.setString(1, funcionario.getNome());
         stm.setString(2, funcionario.getCpf());
         stm.setString(3, funcionario.getSenha());
-        stm.setString(4, funcionario.getPapel());        
+        stm.setString(4, funcionario.getPapel());
 
         stm.setInt(5, funcionario.getId());
         stm.execute();
@@ -83,15 +83,33 @@ public class FuncionarioDAO extends DAO {
         while (rs.next()) {
             f.setId(rs.getInt("funcionarios.id"));
             f.setNome(rs.getString("funcionarios.nome"));
-            f.setCpf(rs.getString("funcionarios.cpf")); 
+            f.setCpf(rs.getString("funcionarios.cpf"));
             f.setSenha(rs.getString("funcionarios.senha"));
             f.setPapel(rs.getString("funcionarios.papel"));
         }
         fechar();
         return f;
     }
-    
-        public void removerFuncionario(int id_funcionario) throws SQLException {
+
+    public Funcionario funcionarioPorCpf(String cpf) throws SQLException {
+        String sql = "SELECT * FROM funcionarios "
+                + "WHERE funcionarios.cpf = ? ";
+        conectar(sql);
+        stm.setString(1, cpf);
+        Funcionario f = new Funcionario();
+        ResultSet rs = stm.executeQuery();
+        while (rs.next()) {
+            f.setId(rs.getInt("funcionarios.id"));
+            f.setNome(rs.getString("funcionarios.nome"));
+            f.setCpf(rs.getString("funcionarios.cpf"));
+            f.setSenha(rs.getString("funcionarios.senha"));
+            f.setPapel(rs.getString("funcionarios.papel"));
+        }
+        fechar();
+        return f;
+    }
+
+    public void removerFuncionario(int id_funcionario) throws SQLException {
         String sql = "DELETE FROM funcionarios "
                 + "WHERE id = ? ; ";
         conectar(sql);

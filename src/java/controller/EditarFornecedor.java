@@ -24,8 +24,11 @@ import model.Fornecedor;
 @WebServlet(name = "EditarFornecedor", urlPatterns = {"/EditarFornecedor"})
 public class EditarFornecedor extends HttpServlet {
 
-    protected void service(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
 
         Fornecedor fornecedor = new Fornecedor();
         FornecedorDAO dao = new FornecedorDAO();

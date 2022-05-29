@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.Produto;
 import model.Venda;
 
-
 @WebServlet(name = "CadastroVenda", urlPatterns = {"/cadastro-venda"})
 public class CadastroVenda extends HttpServlet {
 
@@ -32,8 +31,7 @@ public class CadastroVenda extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            String data = request.getParameter("data_venda");           
-            
+            String data = request.getParameter("data_venda");
 
             Integer quantidade_venda = Integer.parseInt(request.getParameter("quantidade_venda"));
             Date data_venda = formatter.parse(data);
@@ -47,38 +45,34 @@ public class CadastroVenda extends HttpServlet {
             ProdutoDAO dao_produto = new ProdutoDAO();
             Produto produto = dao_produto.produtoPorId(id_produto);
             request.setAttribute("chamou_cadastro", true);
-            
 
             Integer quantidade_anterior = produto.getQuantidade_disponivel();
             Integer nova_quantidade = quantidade_anterior - quantidade_venda;
 
-            if (produto.getQuantidade_disponivel() == 0 && request.getSession(false).getAttribute("papel") == "1") {
-                
-                request.setAttribute("mensagem","Não existe produto disponível.");             
+            if (produto.getQuantidade_disponivel() <= 0 && request.getSession(false).getAttribute("id_papel") == "1") {
 
-                
-            } else if ("N".equals(produto.getLiberado_venda()) && request.getSession(false).getAttribute("papel") == "1") {
-                
-                request.setAttribute("mensagem","Produto não liberado para venda.");
-                
+                request.setAttribute("mensagem", "Não existe produto disponível.");
 
-            } else if(request.getSession(false).getAttribute("papel") != "1" ) {
-            
-                request.setAttribute("mensagem","Somente vendedores podem vender.");
-            
-        } else {
+            } else if ("N".equals(produto.getLiberado_venda()) && request.getSession(false).getAttribute("id_papel") == "1") {
+
+                request.setAttribute("mensagem", "Produto não liberado para venda.");
+
+            } else if (request.getSession(false).getAttribute("id_papel") != "1") {
+
+                request.setAttribute("mensagem", "Somente vendedores podem vender.");
+
+            } else {
                 try {
                     dao_venda.cadastrarVenda(venda);
                     dao_produto.decrementarQuantidade(venda, nova_quantidade);
-                    request.setAttribute("mensagem","Dados da venda cadastrado com sucesso");
+                    request.setAttribute("mensagem", "Dados da venda cadastrado com sucesso");
 
                 } catch (SQLException ex) {
                     Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-                RequestDispatcher dis = request.getRequestDispatcher("cadastrar-venda-produto.jsp");
-                dis.forward(request, response);
-            
+            RequestDispatcher dis = request.getRequestDispatcher("cadastrar-venda-produto.jsp");
+            dis.forward(request, response);
 
         } catch (ParseException | SQLException ex) {
             Logger.getLogger(CadastarCompra.class.getName()).log(Level.SEVERE, null, ex);

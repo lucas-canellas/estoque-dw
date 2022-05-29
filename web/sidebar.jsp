@@ -120,6 +120,7 @@
             </a>
             <ul class="sub-menu collapse" id="venda" style="">
                 <li><a class="nav-link link-dark" href="pagina-cadastrar-venda">Cadastrar venda</a></li>
+                <li><a class="nav-link link-dark" href="vendas">Listar vendas</a></li> 
             </ul>
         </li>
         <li>

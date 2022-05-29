@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Funcionarios</title>
+        <title>Vendas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">    
@@ -15,38 +15,39 @@
     <body>
         <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>        
+            <jsp:include page="sidebar.jsp" />        
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
             <div class="w-100">
-
                 <div class="container mt-5">
-                    <div class="card">
+                    <div class="card ">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Nome</th>
-                                    <th>CPF</th>
-                                    <th>Papel</th>
+                                    <th>Quantidade de vendas</th>
+                                    <th>Data venda</th>
+                                    <th>Valor venda</th>
+                                    <th>Cliente</th>
+                                    <th>Produto</th>
+                                    <th>Funcionario</th>
 
                                     <th>Ações</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${funcionarios}" var="funcionarios">
+                                <c:forEach items="${vendas}" var="vendas">
                                     <tr>
-                                        <td><c:out value="${funcionarios.id}" /></td>
-                                        <td><c:out value="${funcionarios.nome}" /></td>
-                                        <td><c:out value="${funcionarios.cpf}" /></td>                      
-                                        <td>
-                                            <c:out value="${funcionarios.papel == 0 ? 'Administrador' : ''}" />
-                                            <c:out value="${funcionarios.papel == 1 ? 'Vendedor' : ''}" />
-                                            <c:out value="${funcionarios.papel == 2 ? 'Comprador' : ''}" />
-                                        </td>
-
-                                        <td><a type="button" href="funcionario?id=${funcionarios.id}" class="btn btn-primary mr-1">Editar</a><a href="RemoverFuncionario?id=<c:out value="${funcionarios.id}" />" type="button" class="btn btn-danger">Deletar</a></td>
+                                        <td><c:out value="${vendas.id}" /></td>
+                                        <td><c:out value="${vendas.quantidade_venda}" /></td>
+                                        <td><c:out value="${vendas.data_venda}" /></td>
+                                        <td><c:out value="${vendas.valor_venda}" /></td>
+                                        <td><c:out value="${clientes.clientePorId(vendas.id_cliente).getNome()}" /></td>
+                                        <td><c:out value="${produtos.produtoPorId(vendas.id_produto).getNome_produto()}" /></td>
+                                        <td><c:out value="${funcionarios.funcionarioPorId(vendas.id_funcionario).getNome()}" /></td>
+                                        
+                                        <td><a type="button" href="venda?id=${vendas.id}" class="btn btn-primary mr-1">Editar</a><a href="RemoverVenda?id=<c:out value="${vendas.id}" />" type="button" class="btn btn-danger">Deletar</a></td>
                                     </tr>
                                 </c:forEach>
 

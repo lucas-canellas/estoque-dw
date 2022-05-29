@@ -27,7 +27,8 @@ import model.Funcionario;
 @WebServlet(name = "EditarFuncionario", urlPatterns = {"/EditarFuncionario"})
 public class EditarFuncionario extends HttpServlet {
 
-    protected void service(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Funcionario funcionario = new Funcionario();

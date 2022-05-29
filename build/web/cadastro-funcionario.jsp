@@ -13,43 +13,43 @@
 
     </head>
     <body>
-
+        
         <div class="d-flex">
             <%@include file="sidebar.jsp" %>        
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
-            <div class="w-100">
+                <div class="w-100">
 
 
-                <div class="card container mt-5">               
-                    <form class="form-group" method="POST" action="CadastrarFuncionario" >
-                        <div>
-                            <label for="nome">Nome:</label>
-                            <input class="form-control" type="text" name="nome" id="nome" />
-                        </div>
-                        <div>
-                            <label for="cpf">CPF:</label>
-                            <input class="form-control" type="text" name="cpf" id="cpf" />
-                        </div>
-                        <div>
-                            <label for="senha">Senha:</label>
-                            <input class="form-control" type="text" name="senha" id="senha" />
-                        </div>
-                        <div>
-                            <label for="papel">Papel:</label>
-                            <select class="form-control" name="papel" aria-label="Default select example">
-                                <option selected>Selecione o tipo de funcionário</option>
-                                <option value="0">Administrador</option>
-                                <option value="1">Vendedor</option>
-                                <option value="2">Comprador</option>
-                            </select>
-                        </div>
-                        <div class=" mt-3">
+                    <div class="card container mt-5">               
+                        <form class="form-group" method="POST" action="CadastrarFuncionario" >
                             <div>
-                                <button type="submit" class="button-entrar-login">Enviar</button>
+                                <label for="nome">Nome:</label>
+                                <input class="form-control" type="text" name="nome" id="nome" />
                             </div>
-                        </div>
-                    </form></div></div>
+                            <div>
+                                <label for="cpf">CPF:</label>
+                                <input class="form-control" type="text" name="cpf" id="cpf" />
+                            </div>
+                            <div>
+                                <label for="senha">Senha:</label>
+                                <input class="form-control" type="text" name="senha" id="senha" />
+                            </div>
+                            <div>
+                                <label for="papel">Papel:</label>
+                                <select class="form-control" name="papel" aria-label="Default select example">
+                                    <option selected>Selecione o tipo de funcionário</option>
+                                    <option value="0">Administrador</option>
+                                    <option value="1">Vendedor</option>
+                                    <option value="2">Comprador</option>
+                                </select>
+                            </div>
+                            <div class=" mt-3">
+                                <div>
+                                    <button type="submit" class="button-entrar-login">Enviar</button>
+                                </div>
+                            </div>
+                        </form></div></div>
 
             </div>
         </div>
@@ -58,5 +58,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.mask.js"></script>
         <script src="js/validacao.js"></script>
+
+        
     </body>
 </html>

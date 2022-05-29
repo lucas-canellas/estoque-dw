@@ -31,12 +31,15 @@ public class Login extends HttpServlet {
                 switch (user.getPapel()) {
                     case "0":
                         request.getSession(true).setAttribute("papel", "Administrador");
+                        request.getSession(true).setAttribute("id_papel", "0");
                         break;
                     case "1":
                         request.getSession(true).setAttribute("papel", "Vendedor");
+                        request.getSession(true).setAttribute("id_papel", "1");
                         break;               
                     case "2":
                         request.getSession(true).setAttribute("papel", "Comprador");
+                        request.getSession(true).setAttribute("id_papel", "2");
                         break;
                     default:
                         break;

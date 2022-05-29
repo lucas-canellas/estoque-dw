@@ -13,6 +13,7 @@
 
     </head>
     <body>
+        <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
             <%@include file="sidebar.jsp" %>        
             <div class="w-100">
@@ -59,5 +60,13 @@
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        
+        <c:if test="${chamou_cadastro eq true}">
+            <script>
+                $(document).ready(function () {
+                    $('#mensagemStatusModal').modal('show');
+                });
+            </script>
+        </c:if>
     </body>
 </html>

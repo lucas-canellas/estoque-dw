@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.pages;
+package controller;
 
-import controller.ListarFornecedores;
-import dao.CategoriaDAO;
+import dao.ClienteDAO;
+import dao.FuncionarioDAO;
+import dao.ProdutoDAO;
+import dao.VendaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -23,18 +25,28 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lucas
  */
-@WebServlet(name = "CadastrarProduto", urlPatterns = {"/pagina-cadastrar-produto"})
-public class CadastrarProduto extends HttpServlet {
+@WebServlet(name = "ListarVendas", urlPatterns = {"/vendas"})
+public class ListarVendas extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try {
-            CategoriaDAO dao = new CategoriaDAO();
-            request.getSession(true).setAttribute("categorias", dao.listarCategoria());
 
-            RequestDispatcher rd = request.getRequestDispatcher("cadastrar-produto.jsp");
-            rd.forward(request, response);
+        try {
+            VendaDAO dao = new VendaDAO();
+            request.setAttribute("vendas", dao.listarVendas());
+            
+            ClienteDAO cliente_dao = new ClienteDAO();
+            ProdutoDAO produto_dao = new ProdutoDAO();
+            FuncionarioDAO funcionario_dao = new FuncionarioDAO();
+            
+            request.setAttribute("clientes", cliente_dao);
+            request.setAttribute("produtos", produto_dao); 
+            request.setAttribute("funcionarios", funcionario_dao); 
+            
+
+            RequestDispatcher disp = request.getRequestDispatcher("vendas.jsp");
+            disp.forward(request, response);
+
         } catch (SQLException ex) {
             Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
         }

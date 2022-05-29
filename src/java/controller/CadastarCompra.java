@@ -59,10 +59,12 @@ public class CadastarCompra extends HttpServlet {
                 dao_compra.cadastrarCompra(compra);
                 dao_produto.atualizarPrecoCompra(compra);
                 dao_produto.incrementarQuantidade(compra, nova_quantidade);
-//                response.sendRedirect("categorias");
+
             } catch (SQLException ex) {
                 Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            response.sendRedirect("categorias");
             
         } catch (ParseException | SQLException ex) {
             Logger.getLogger(CadastarCompra.class.getName()).log(Level.SEVERE, null, ex);
