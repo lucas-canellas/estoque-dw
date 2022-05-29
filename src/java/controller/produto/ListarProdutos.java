@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.pages;
+package controller.produto;
 
 import controller.fornecedor.ListarFornecedores;
 import dao.CategoriaDAO;
+import dao.ProdutoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -22,21 +23,20 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lucas
  */
-@WebServlet(name = "PageCadastarProduto", urlPatterns = {"/PageCadastarProduto"})
-public class PageCadastarProduto extends HttpServlet {
+@WebServlet(name = "ListarProdutos", urlPatterns = {"/ListarProdutos"})
+public class ListarProdutos extends HttpServlet {
 
-      
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        try {     
-            CategoriaDAO dao = new CategoriaDAO();
-            request.getSession(true).setAttribute("categorias", dao.listarCategoria());
-            
-            response.sendRedirect("cadastrar-produto.jsp");
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            ProdutoDAO dao = new ProdutoDAO();
+            request.getSession(true).setAttribute("produtos", dao.listarProduto());
+
+            response.sendRedirect("produtos.jsp");
         } catch (SQLException ex) {
             Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
 }

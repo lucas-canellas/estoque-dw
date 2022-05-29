@@ -5,9 +5,9 @@
  */
 package controller.pages;
 
-import controller.CadastarCompra;
-import controller.CadastrarCliente;
-import controller.ListarFornecedores;
+import controller.compra.CadastarCompra;
+import controller.cliente.CadastrarCliente;
+import controller.fornecedor.ListarFornecedores;
 import dao.ClienteDAO;
 import dao.CompraDAO;
 import dao.FornecedorDAO;

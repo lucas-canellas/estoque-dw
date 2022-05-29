@@ -5,7 +5,7 @@
  */
 package controller.pages;
 
-import controller.ListarFornecedores;
+import controller.fornecedor.ListarFornecedores;
 import dao.CategoriaDAO;
 import dao.FornecedorDAO;
 import dao.FuncionarioDAO;

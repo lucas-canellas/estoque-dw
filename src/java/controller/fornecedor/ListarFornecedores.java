@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.pages;
+package controller.fornecedor;
 
-import controller.fornecedor.ListarFornecedores;
-import dao.CategoriaDAO;
+import dao.FornecedorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -17,26 +16,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author lucas
  */
-@WebServlet(name = "PageCadastarProduto", urlPatterns = {"/PageCadastarProduto"})
-public class PageCadastarProduto extends HttpServlet {
+@WebServlet(name = "ListarFornecedores", urlPatterns = {"/fornecedores"})
+public class ListarFornecedores extends HttpServlet {
 
-      
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try {     
-            CategoriaDAO dao = new CategoriaDAO();
-            request.getSession(true).setAttribute("categorias", dao.listarCategoria());
+            FornecedorDAO dao = new FornecedorDAO();
+            request.getSession(true).setAttribute("fornecedores", dao.listarFornecedor());
             
-            response.sendRedirect("cadastrar-produto.jsp");
+            response.sendRedirect("fornecedores.jsp");
         } catch (SQLException ex) {
             Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
 }

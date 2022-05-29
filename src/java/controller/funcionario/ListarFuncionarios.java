@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller.pages;
+package controller.funcionario;
 
 import controller.fornecedor.ListarFornecedores;
-import dao.CategoriaDAO;
+import dao.FuncionarioDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,21 +21,20 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lucas
  */
-@WebServlet(name = "PageCadastarProduto", urlPatterns = {"/PageCadastarProduto"})
-public class PageCadastarProduto extends HttpServlet {
+@WebServlet(name = "ListarFuncionarios", urlPatterns = {"/funcionarios"})
+public class ListarFuncionarios extends HttpServlet {
 
-      
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try {     
-            CategoriaDAO dao = new CategoriaDAO();
-            request.getSession(true).setAttribute("categorias", dao.listarCategoria());
+            FuncionarioDAO dao = new FuncionarioDAO();
+            request.getSession(true).setAttribute("funcionarios", dao.listarFuncionarios());
             
-            response.sendRedirect("cadastrar-produto.jsp");
+            response.sendRedirect("funcionarios.jsp");
         } catch (SQLException ex) {
             Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
 }
