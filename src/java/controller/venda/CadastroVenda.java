@@ -28,10 +28,11 @@ import model.Venda;
 @WebServlet(name = "CadastroVenda", urlPatterns = {"/cadastro-venda"})
 public class CadastroVenda extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             response.setContentType("text/html;charset=UTF-8");
-
+            
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             String data = request.getParameter("data_venda");
 
@@ -51,7 +52,7 @@ public class CadastroVenda extends HttpServlet {
             Integer quantidade_anterior = produto.getQuantidade_disponivel();
             Integer nova_quantidade = quantidade_anterior - quantidade_venda;
 
-            if (produto.getQuantidade_disponivel() <= 0 && request.getSession(false).getAttribute("id_papel") == "1") {
+            if (produto.getQuantidade_disponivel() < quantidade_venda && request.getSession(false).getAttribute("id_papel") == "1") {
 
                 request.setAttribute("mensagem", "Não existe produto disponível.");
 

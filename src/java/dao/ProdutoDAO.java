@@ -82,12 +82,12 @@ public class ProdutoDAO extends DAO {
         fechar();
     }
 
-    public void incrementarQuantidade(Compra compra, int nova_quantidade) throws SQLException {
+    public void incrementarQuantidade(Integer id_produto, int nova_quantidade) throws SQLException {
 
         String sql = "UPDATE produtos SET quantidade_disponível = ? WHERE id = ? ";
         conectar(sql);
         stm.setInt(1, nova_quantidade);
-        stm.setInt(2, compra.getId_produto());
+        stm.setInt(2, id_produto);
 
         stm.execute();
         fechar();

@@ -59,7 +59,7 @@ public class CadastarCompra extends HttpServlet {
             try {
                 dao_compra.cadastrarCompra(compra);
                 dao_produto.atualizarPrecoCompra(compra);
-                dao_produto.incrementarQuantidade(compra, nova_quantidade);
+                dao_produto.incrementarQuantidade(id_produto, nova_quantidade);
 
             } catch (SQLException ex) {
                 Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);

@@ -20,7 +20,7 @@
                 <%@include file="navbar.jsp" %>
                 <div class="w-100">
                     <div class="card container mt-5">               
-                        <form class="form-group" method="POST" action="cadastro-venda" >
+                        <form class="form-group" method="POST" action="EditarVenda" >
                             <input type="hidden" name="id" value="<%out.print(request.getAttribute("id"));%>"  />
                             <input type="hidden" id="funcionario" value="<%out.print(request.getAttribute("id_funcionario"));%>"  />
                             <input type="hidden" id="cliente" value="<%out.print(request.getAttribute("id_cliente"));%>"  />

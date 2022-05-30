@@ -25,9 +25,9 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Quantidade de vendas</th>
-                                    <th>Data venda</th>
-                                    <th>Valor venda</th>
+                                    <th>Quantidade</th>
+                                    <th style="white-space: nowrap">Data venda</th>
+                                    <th style="white-space: nowrap">Valor venda</th>
                                     <th>Cliente</th>
                                     <th>Produto</th>
                                     <th>Funcionario</th>

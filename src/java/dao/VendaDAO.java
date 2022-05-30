@@ -10,14 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Compra;
-import model.Produto;
 import model.Venda;
 
-/**
- *
- * @author lucas
- */
+
 public class VendaDAO extends DAO {
 
     public void cadastrarVenda(Venda venda) throws SQLException {
