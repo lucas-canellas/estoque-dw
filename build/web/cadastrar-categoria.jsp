@@ -13,12 +13,18 @@
 
     </head>
     <body>
+
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>        
-            <div class="w-100">
+            <div class="menu-lateral-trigger">
+                <jsp:include page="sidebar.jsp" />
+            </div>      
+            <div class="w-100 ">
                 <%@include file="navbar.jsp" %>
-                <div class="w-100">                
-                    <div class="card container mt-5">  <h1>Cadastrar categoria</h1>             
+                <div class="w-100 body-container"> 
+                    <div class="title-bar">
+                        Cadastrar categorias
+                    </div>
+                    <div class="card  mt-5">              
                         <form class="form-group" method="POST" action="CadastrarCategoria" >
                             <div>
                                 <label for="nome_categoria">Razão Social:</label>
@@ -36,6 +42,7 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="modal-sidebar.jsp" />   
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

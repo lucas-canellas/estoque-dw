@@ -20,12 +20,18 @@
                 response.sendRedirect("index.jsp");
             }
         %>
-        <div class="d-flex">            
+        <div class="d-flex"> 
+            <div class="menu-lateral-trigger">
+                        <div class="menu-lateral-trigger">
             <jsp:include page="sidebar.jsp" />
+            </div>
+            </div>
             <div class="w-100">
-                <%@include file="navbar.jsp" %>
-                <div class="w-100">
-                    <div class="card container container-tabelas mt-5 mb-5">            
+                
+                    <%@include file="navbar.jsp" %>
+                
+                <div class="w-100 body-container">
+                    <div class="card  container-tabelas mt-5 mb-5">            
                         <!-- Nav tabs -->
                         <ul class="nav nav-pills">
                             <li class='nav-item'>
@@ -276,8 +282,13 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="modal-sidebar.jsp" />           
+
+
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+
+
     </body>
 </html>

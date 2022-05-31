@@ -14,13 +14,17 @@
     </head>
     <body>
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>        
+                        <div class="menu-lateral-trigger">
+            <jsp:include page="sidebar.jsp" />
+            </div>       
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
-            <div class="w-100">
+            <div class="w-100 body-container">
 
-
-                <div class="card container mt-5">  <h1>Editar Categoria</h1>             
+                            <div class="title-bar">
+                        Editar categoria
+                    </div>
+                <div class="card  mt-5">             
                     <form class="form-group" method="POST" action="EditarCategoria" >
                         <input type="hidden" name="id" value="<%out.print(request.getAttribute("id"));%>"  />
                         <div>
@@ -36,6 +40,7 @@
 </div>
             </div>
         </div>
+                        <jsp:include page="modal-sidebar.jsp" />   
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

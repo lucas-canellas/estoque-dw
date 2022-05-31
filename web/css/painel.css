@@ -22,7 +22,7 @@
 .container-tabelas {    
     border-top: 5px solid #2a68af;
     padding-top: 1rem;
-    
+
 }
 
 .header img {
@@ -52,6 +52,7 @@
     min-height: 100vh;
     width: 262px;
     padding: .5rem;
+
 }
 
 .button-entrar-login {
@@ -81,7 +82,7 @@
     object-fit: cover;
 }
 
-#fornecedores, #funcionarios, #clientes, #produtos {
+#fornecedores, #funcionarios, #clientes, #produtos, #compra, #venda{
     background-color: #0069d910;
     border-radius: 15px;
 }
@@ -101,6 +102,86 @@
     border-top: 5px solid #2a68af;
     overflow-x: auto;
 }
+
+.icon-menu {
+    width: 28px;
+
+}
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.modal-sidebar .modal-dialog {
+
+    margin: 0 !important;
+
+}
+
+.modal-sidebar .modal-body {
+    padding: 0 !important;
+}
+
+ .modal-sidebar .modal-content {
+    border: 0px !important;
+}
+
+.card {
+
+    padding: 1rem;
+}
+
+.body-container {
+    padding: 1rem;
+    background-color: #e5e5e570 ;
+    min-height : calc(100vh - 45px);
+    
+}
+
+
+
+
+@media (max-width: 767.98px) { 
+    .menu-lateral-trigger {
+        display: none !important;
+    }
+    .navbar-wrapper {
+
+        justify-content: space-between;
+
+    }
+
+
+    .modal-dialog {
+        max-width: min-content !important;
+
+    }
+
+
+
+}
+
+.title-bar {
+    width: 100%; 
+    border-radius: 5px; 
+    padding: .5rem; 
+    background-color: #2a68af20;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #2a68af;
+    
+}
+
+@media (min-width: 767.98px) { 
+
+
+    .icon-menu {
+        display: none !important;
+    }
+}
+
 
 
 

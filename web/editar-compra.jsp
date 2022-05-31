@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Editar Venda</title>
+        <title>Editar Compra</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">    
@@ -17,44 +17,44 @@
         <div class="d-flex">
                         <div class="menu-lateral-trigger">
             <jsp:include page="sidebar.jsp" />
-            </div>      
+            </div>       
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
                 <div class="w-100 body-container">
                                 <div class="title-bar">
-                        Editar venda
+                        Editar compra
                     </div>
                     <div class="card  mt-5">               
-                        <form class="form-group" method="POST" action="EditarVenda" >
+                        <form class="form-group" method="POST" action="EditarCompra" >
                             <input type="hidden" name="id" value="<%out.print(request.getAttribute("id"));%>"  />
+                            <input type="hidden" id="fornecedor" value="<%out.print(request.getAttribute("id_fornecedor"));%>"  />
                             <input type="hidden" id="funcionario" value="<%out.print(request.getAttribute("id_funcionario"));%>"  />
-                            <input type="hidden" id="cliente" value="<%out.print(request.getAttribute("id_cliente"));%>"  />
                             <input type="hidden" id="produto" value="<%out.print(request.getAttribute("id_produto"));%>"  />
                             <div>
                                 <label for="quantidade_venda">Quantidade:</label>
-                                <input class="form-control" value="<%out.print(request.getAttribute("quantidade_venda"));%>" type="text" name="quantidade_venda" id="quantidade_venda" />
+                                <input class="form-control" value="<%out.print(request.getAttribute("quantidade_compra"));%>" type="text" name="quantidade_compra" id="quantidade_compra" />
                             </div>
                             <div>
                                 <label for="data_venda">Data da compra:</label>
-                                <input class="form-control" value="<%out.print(request.getAttribute("data_venda"));%>" type="text" name="data_venda" id="data_venda" />
+                                <input class="form-control" value="<%out.print(request.getAttribute("data_compra"));%>" type="text" name="data_compra" id="data_compra" />
                             </div>
                             <div>
                                 <label for="valor_venda">Valor da compra::</label>
-                                <input class="form-control" type="text" value="<%out.print(request.getAttribute("valor_venda"));%>" name="valor_venda"  id="valor_venda" />
+                                <input class="form-control" type="text" value="<%out.print(request.getAttribute("valor_compra"));%>" name="valor_compra"  id="valor_compra" />
                             </div>
                             <div>
-                                <label for="id_cliente">Cliente:</label>
-                                <select class="form-control" name="id_cliente" aria-label="Default select example">
-                                                                   
-                                    <c:forEach var="cliente" items="${clientes}" varStatus="id">
-                                        <option class="clie_value" value="${cliente.id}">${cliente.nome}</option>                                    
+                                <label for="id_fornecedor">Fornecedor</label>
+                                <select class="form-control" name="id_fornecedor" aria-label="Default select example">
+                                                               
+                                    <c:forEach var="fornecedor" items="${fornecedores}" varStatus="id">
+                                        <option class="forn_value" value="${fornecedor.id}">${fornecedor.razao_social}</option>                                    
                                     </c:forEach>  
                                 </select>
                             </div>
                             <div>
                                 <label for="id_produto">Produto:</label>
                                 <select class="form-control" name="id_produto" aria-label="Default select example">
-                                                                  
+                                                              
                                     <c:forEach var="produto" items="${produtos}" varStatus="id">
                                         <option class="prod_value" value="${produto.id}">${produto.nome_produto}</option>                                    
                                     </c:forEach>  
@@ -84,7 +84,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.mask.js"></script>
         <script src="js/validacao.js"></script>
-        <script src="js/scripts.js"></script>
+        <script src="js/selected-editar-compra.js"></script>
 
     </body>
 </html>

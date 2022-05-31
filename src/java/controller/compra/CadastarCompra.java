@@ -6,11 +6,9 @@
 package controller.compra;
 
 import controller.cliente.CadastrarCliente;
-import dao.CategoriaDAO;
 import dao.CompraDAO;
 import dao.ProdutoDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
 import java.sql.SQLException;
 import java.text.ParseException;

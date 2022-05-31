@@ -15,12 +15,18 @@
     </head>
     <body>
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>        
+                        <div class="menu-lateral-trigger">
+            <jsp:include page="sidebar.jsp" />
+            </div>      
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
-            <div class="w-100">
-                <div class="container mt-5">
-                    <h2>Fornecedores</h2>
+            <div class="w-100 body-container">
+                            <div class="title-bar">
+                        Fornecedores
+                    </div>
+                <div class=" mt-5">
+                    
+
                                
                     <div class="card">
                         <table class="table table-striped">
@@ -64,6 +70,7 @@
 </div>
             </div>
         </div>
+            <jsp:include page="modal-sidebar.jsp" />   
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

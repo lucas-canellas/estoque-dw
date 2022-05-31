@@ -15,11 +15,16 @@
     <body>
 
         <div class="d-flex">
-            <jsp:include page="sidebar.jsp" />        
+                        <div class="menu-lateral-trigger">
+            <jsp:include page="sidebar.jsp" />
+            </div>      
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
-                <div class="w-100">
-                    <div class="card container mt-5">               
+                <div class="w-100 body-container">
+                                <div class="title-bar">
+                        Editar venda
+                    </div>
+                    <div class="card  mt-5">               
                         <form class="form-group" method="POST" action="EditarVenda" >
                             <input type="hidden" name="id" value="<%out.print(request.getAttribute("id"));%>"  />
                             <input type="hidden" id="funcionario" value="<%out.print(request.getAttribute("id_funcionario"));%>"  />
@@ -40,7 +45,7 @@
                             <div>
                                 <label for="id_cliente">Cliente:</label>
                                 <select class="form-control" name="id_cliente" aria-label="Default select example">
-                                    <option selected>Selecione a fornecedor</option>                                
+                                                                   
                                     <c:forEach var="cliente" items="${clientes}" varStatus="id">
                                         <option class="clie_value" value="${cliente.id}">${cliente.nome}</option>                                    
                                     </c:forEach>  
@@ -49,7 +54,7 @@
                             <div>
                                 <label for="id_produto">Produto:</label>
                                 <select class="form-control" name="id_produto" aria-label="Default select example">
-                                    <option selected>Selecione o produto</option>                                
+                                                                  
                                     <c:forEach var="produto" items="${produtos}" varStatus="id">
                                         <option class="prod_value" value="${produto.id}">${produto.nome_produto}</option>                                    
                                     </c:forEach>  
@@ -73,6 +78,7 @@
                 </div>
             </div>
         </div>
+                            <jsp:include page="modal-sidebar.jsp" />   
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

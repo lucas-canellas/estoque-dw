@@ -15,13 +15,17 @@
     <body>
 
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>        
+                        <div class="menu-lateral-trigger">
+            <jsp:include page="sidebar.jsp" />
+            </div>       
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
-            <div class="w-100">
-
+            <div class="w-100 body-container">
+            <div class="title-bar">
+                        Cadastrar fornecedor
+                    </div>
                 
-                <div class="card container mt-5">  <h1>Cadastrar fornecedor</h1>             <form class="form-group" method="POST" action="CadastrarFornecedor" >
+                <div class="card  mt-5">             <form class="form-group" method="POST" action="CadastrarFornecedor" >
                         <div>
                             <label for="razao_social">Razão Social:</label>
                             <input class="form-control" type="text" name="razao_social" id="razao_social" />
@@ -67,6 +71,7 @@
 
             </div>
         </div>
+            <jsp:include page="modal-sidebar.jsp" />   
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

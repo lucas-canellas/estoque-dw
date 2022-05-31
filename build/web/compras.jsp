@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Vendas</title>
+        <title>Compras</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">    
@@ -21,8 +21,8 @@
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
             <div class="w-100 body-container">
-                                    <div class="title-bar">
-                        Listar vendas
+                            <div class="title-bar">
+                        Compras
                     </div>
                 <div class=" mt-5">
                     <div class="card ">
@@ -31,9 +31,9 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Quantidade</th>
-                                    <th style="white-space: nowrap">Data venda</th>
-                                    <th style="white-space: nowrap">Valor venda</th>
-                                    <th>Cliente</th>
+                                    <th style="white-space: nowrap">Data compra</th>
+                                    <th style="white-space: nowrap">Valor compra</th>
+                                    <th>Forneceodr</th>
                                     <th>Produto</th>
                                     <th>Funcionario</th>
 
@@ -42,17 +42,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${vendas}" var="vendas">
+                                <c:forEach items="${compras}" var="compras">
                                     <tr>
-                                        <td><c:out value="${vendas.id}" /></td>
-                                        <td><c:out value="${vendas.quantidade_venda}" /></td>
-                                        <td><c:out value="${vendas.data_venda}" /></td>
-                                        <td><c:out value="${vendas.valor_venda}" /></td>
-                                        <td><c:out value="${clientes.clientePorId(vendas.id_cliente).getNome()}" /></td>
-                                        <td><c:out value="${produtos.produtoPorId(vendas.id_produto).getNome_produto()}" /></td>
-                                        <td><c:out value="${funcionarios.funcionarioPorId(vendas.id_funcionario).getNome()}" /></td>
+                                        <td><c:out value="${compras.id}" /></td>
+                                        <td><c:out value="${compras.quantidade_compra}" /></td>
+                                        <td><c:out value="${compras.data_compra}" /></td>
+                                        <td><c:out value="${compras.valor_compra}" /></td>
+                                        <td><c:out value="${fornecedores.fornecedorPorId(compras.id_fornecedor).getRazao_social()}" /></td>
+                                        <td><c:out value="${produtos.produtoPorId(compras.id_produto).getNome_produto()}" /></td>
+                                        <td><c:out value="${funcionarios.funcionarioPorId(compras.id_funcionario).getNome()}" /></td>
                                         
-                                        <td><a type="button" href="venda?id=${vendas.id}" class="btn btn-primary mr-1">Editar</a><a href="RemoverVenda?id=<c:out value="${vendas.id}" />" type="button" class="btn btn-danger">Deletar</a></td>
+                                        <td><a type="button" href="compra?id=${compras.id}" class="btn btn-primary mr-1">Editar</a><a href="RemoverCompra?id=<c:out value="${compras.id}" />" type="button" class="btn btn-danger">Deletar</a></td>
                                     </tr>
                                 </c:forEach>
 

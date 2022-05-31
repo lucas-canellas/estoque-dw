@@ -18,13 +18,17 @@
            <%@include file="./modal/mensagem-status.jsp" %>  
            
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>        
+                        <div class="menu-lateral-trigger">
+            <jsp:include page="sidebar.jsp" />
+            </div>      
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
-                <div class="w-100">
+                <div class="w-100 body-container">
+                                <div class="title-bar">
+                        Cadastrar venda
+                    </div>
 
-
-                    <div class="card container mt-5">  <h1>Cadastrar Venda</h1>             
+                    <div class="card  mt-5">             
                         <form class="form-group" method="POST" action="cadastro-venda" >
                             <div>
                                 <label for="quantidade_venda">Quantidade:</label>
@@ -80,7 +84,7 @@
         <script src="js/jquery.mask.js"></script>
         <script src="js/validacao.js"></script>
 
-
+        <jsp:include page="modal-sidebar.jsp" />   
         <c:if test="${chamou_cadastro eq true}">
             <script>
                 $(document).ready(function () {

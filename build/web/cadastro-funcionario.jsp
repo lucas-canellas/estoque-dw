@@ -15,13 +15,17 @@
     <body>
         
         <div class="d-flex">
-            <%@include file="sidebar.jsp" %>        
+                        <div class="menu-lateral-trigger">
+            <jsp:include page="sidebar.jsp" />
+            </div>       
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
-                <div class="w-100">
+                <div class="w-100 body-container">
+                                <div class="title-bar">
+                        Cadastrar funcionário
+                    </div>
 
-
-                    <div class="card container mt-5">               
+                    <div class="card  mt-5">               
                         <form class="form-group" method="POST" action="CadastrarFuncionario" >
                             <div>
                                 <label for="nome">Nome:</label>
@@ -53,6 +57,7 @@
 
             </div>
         </div>
+                <jsp:include page="modal-sidebar.jsp" />   
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
