@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,10 +35,14 @@ public class RemoverFornecedor extends HttpServlet {
             FornecedorDAO dao = new FornecedorDAO();
             int fornecedor = Integer.parseInt(request.getParameter("id"));
             dao.removerFornecedor(fornecedor);
-            response.sendRedirect("fornecedores");
+            
         } catch (SQLException ex) {
-            Logger.getLogger(RemoverFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("chamou_cadastro", true);
+            request.setAttribute("mensagem", "Não é possivel deletar um fornecedor caso ele tenha algum registro ativo no sistema.");
         }
+        
+        RequestDispatcher dis = request.getRequestDispatcher("fornecedores.jsp");
+        dis.forward(request, response);
 
     }
 

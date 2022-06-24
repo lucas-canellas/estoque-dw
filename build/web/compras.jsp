@@ -1,3 +1,7 @@
+<%@page import="dao.FuncionarioDAO"%>
+<%@page import="dao.ProdutoDAO"%>
+<%@page import="dao.FornecedorDAO"%>
+<%@page import="dao.CompraDAO"%>
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -13,6 +17,18 @@
 
     </head>
     <body>
+        <%
+            CompraDAO dao = new CompraDAO();
+            request.setAttribute("compras", dao.listarCompras());
+
+            FornecedorDAO fornecedores_dao = new FornecedorDAO();
+            ProdutoDAO produto_dao = new ProdutoDAO();
+            FuncionarioDAO funcionario_dao = new FuncionarioDAO();
+
+            request.setAttribute("fornecedores", fornecedores_dao);
+            request.setAttribute("produtos", produto_dao);
+            request.setAttribute("funcionarios", funcionario_dao);
+        %>
         <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
                         <div class="menu-lateral-trigger">

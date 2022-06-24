@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,10 +34,12 @@ public class ListarClientes extends HttpServlet {
             ClienteDAO dao = new ClienteDAO();
             request.getSession(true).setAttribute("clientes", dao.listarCliente());
             
-            response.sendRedirect("clientes.jsp");
+
         } catch (SQLException ex) {
             Logger.getLogger(ListarFornecedores.class.getName()).log(Level.SEVERE, null, ex);
         }
+            RequestDispatcher dis = request.getRequestDispatcher("clientes.jsp");
+            dis.forward(request, response);
     }
 
    

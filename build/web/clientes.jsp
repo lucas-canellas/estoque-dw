@@ -1,3 +1,4 @@
+<%@page import="dao.ClienteDAO"%>
 <%@page import="model.Cliente"%>
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html" %>
@@ -14,65 +15,77 @@
 
     </head>
     <body>
+        <%
+            ClienteDAO dao = new ClienteDAO();
+            request.getSession(true).setAttribute("clientes", dao.listarCliente());
+        %>
+        <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
-                        <div class="menu-lateral-trigger">
-            <jsp:include page="sidebar.jsp" />
+            <div class="menu-lateral-trigger">
+                <jsp:include page="sidebar.jsp" />
             </div>    
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
-            <div class="w-100 body-container">
-                            <div class="title-bar">
+                <div class="w-100 body-container">
+                    <div class="title-bar">
                         Clientes
                     </div>
 
-                <div class=" mt-5">
-                    
-                               
-                    <div class="card">
-                        <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nome</th>
-                                <th>CPF</th>
-                                <th>Endereço</th>
-                                <th>Bairro</th>
-                                <th>Cidade</th>
-                                <th>UF</th>
-                                <th>CEP</th>
-                                <th>Telefone</th>
-                                <th>Email</th>
-                                <th>Ações</th>
+                    <div class=" mt-5">
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${clientes}" var="clientes">
-                            <tr>
-                                <td><c:out value="${clientes.id}" /></td>
-                                <td><c:out value="${clientes.nome}" /></td>
-                                <td><c:out value="${clientes.cpf}" /></td>
-                                <td><c:out value="${clientes.endereco}" /></td>
-                                <td><c:out value="${clientes.bairro}" /></td>
-                                <td><c:out value="${clientes.cidade}" /></td>
-                                <td><c:out value="${clientes.uf}" /></td>
-                                <td><c:out value="${clientes.cep}" /></td>
-                                <td><c:out value="${clientes.telefone}" /></td>
-                                <td><c:out value="${clientes.email}" /></td>
-                                <td><a type="button" href="cliente?id=${clientes.id}" class="btn btn-primary mr-1">Editar</a><a href="RemoverCliente?id=<c:out value="${clientes.id}" />" type="button" class="btn btn-danger">Deletar</a></td>
-                            </tr>
-                            </c:forEach>
-                            
-                        </tbody>
-                    </table>
-                    </div>
-                </div></div>
+
+                        <div class="card">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome</th>
+                                        <th>CPF</th>
+                                        <th>Endereço</th>
+                                        <th>Bairro</th>
+                                        <th>Cidade</th>
+                                        <th>UF</th>
+                                        <th>CEP</th>
+                                        <th>Telefone</th>
+                                        <th>Email</th>
+                                        <th>Ações</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${clientes}" var="clientes">
+                                        <tr>
+                                            <td><c:out value="${clientes.id}" /></td>
+                                            <td><c:out value="${clientes.nome}" /></td>
+                                            <td><c:out value="${clientes.cpf}" /></td>
+                                            <td><c:out value="${clientes.endereco}" /></td>
+                                            <td><c:out value="${clientes.bairro}" /></td>
+                                            <td><c:out value="${clientes.cidade}" /></td>
+                                            <td><c:out value="${clientes.uf}" /></td>
+                                            <td><c:out value="${clientes.cep}" /></td>
+                                            <td><c:out value="${clientes.telefone}" /></td>
+                                            <td><c:out value="${clientes.email}" /></td>
+                                            <td><a type="button" href="cliente?id=${clientes.id}" class="btn btn-primary mr-1">Editar</a><a href="RemoverCliente?id=<c:out value="${clientes.id}" />" type="button" class="btn btn-danger">Deletar</a></td>
+                                        </tr>
+                                    </c:forEach>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div></div>
 
             </div>
         </div>
-            <jsp:include page="modal-sidebar.jsp" />   
+        <jsp:include page="modal-sidebar.jsp" />   
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <c:if test="${chamou_cadastro eq true}">
+            <script>
+                $(document).ready(function () {
+                    $('#mensagemStatusModal').modal('show');
+                });
+            </script>
+        </c:if>
     </body>
 </html>

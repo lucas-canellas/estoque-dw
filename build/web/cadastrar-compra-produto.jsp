@@ -1,3 +1,7 @@
+<%@page import="dao.FuncionarioDAO"%>
+<%@page import="dao.ProdutoDAO"%>
+<%@page import="dao.FornecedorDAO"%>
+<%@page import="dao.CompraDAO"%>
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -13,7 +17,16 @@
 
     </head>
     <body>
+        <%
+            FornecedorDAO fornecedor_dao = new FornecedorDAO();
+            request.getSession(true).setAttribute("fornecedores", fornecedor_dao.listarFornecedor());
 
+            ProdutoDAO produto_dao = new ProdutoDAO();
+            request.getSession(true).setAttribute("produtos", produto_dao.listarProduto());
+
+
+        %>
+        <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
             <div class="menu-lateral-trigger">
                 <jsp:include page="sidebar.jsp" />
@@ -57,15 +70,8 @@
                                     </c:forEach>  
                                 </select>
                             </div>
-                            <div>
-                                <label for="id_funcionario">Funcionário:</label>
-                                <select class="form-control" name="id_funcionario" aria-label="Default select example">
-                                    <option selected>Selecione o funcionário</option>                                
-                                    <c:forEach var="funcionario" items="${funcionarios}" varStatus="id">
-                                        <option value="${funcionario.id}">${funcionario.nome}</option>                                    
-                                    </c:forEach>  
-                                </select>
-                            </div>
+                            <!--ID COMPRADOR-->
+                            <input type="hidden" name="id_funcionario" value="${user_id}"/>                            
                             <div class=" mt-3">
                                 <div>
                                     <button type="submit" class="button-entrar-login">Enviar</button>
@@ -81,5 +87,12 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.mask.js"></script>
         <script src="js/validacao.js"></script>
+        <c:if test="${chamou_cadastro eq true}">
+            <script>
+                $(document).ready(function () {
+                    $('#mensagemStatusModal').modal('show');
+                });
+            </script>
+        </c:if>
     </body>
 </html>

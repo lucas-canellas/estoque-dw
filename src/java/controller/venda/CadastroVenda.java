@@ -32,7 +32,7 @@ public class CadastroVenda extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             response.setContentType("text/html;charset=UTF-8");
-            
+
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             String data = request.getParameter("data_venda");
 
@@ -65,14 +65,11 @@ public class CadastroVenda extends HttpServlet {
                 request.setAttribute("mensagem", "Somente vendedores podem vender.");
 
             } else {
-                try {
-                    dao_venda.cadastrarVenda(venda);
-                    dao_produto.decrementarQuantidade(venda, nova_quantidade);
-                    request.setAttribute("mensagem", "Dados da venda cadastrado com sucesso");
 
-                } catch (SQLException ex) {
-                    Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                dao_venda.cadastrarVenda(venda);
+                dao_produto.decrementarQuantidade(venda, nova_quantidade);
+                request.setAttribute("mensagem", "Dados da venda cadastrado com sucesso");
+
             }
             RequestDispatcher dis = request.getRequestDispatcher("cadastrar-venda-produto.jsp");
             dis.forward(request, response);

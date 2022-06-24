@@ -38,7 +38,7 @@
                 </div>
             </a>
             <ul class="sub-menu collapse" id="fornecedores" >
-                <li><a class="nav-link link-dark" href="fornecedores">Listar fornecedores</a></li> 
+                <li><a class="nav-link link-dark" href="fornecedores.jsp">Listar fornecedores</a></li> 
                 <li><a class="nav-link link-dark" href="cadastrar-fornecedor.jsp">Cadastrar fornecedor</a></li>
             </ul>
         </li>
@@ -76,7 +76,7 @@
                 </div>
             </a>
             <ul class="sub-menu collapse" id="clientes" style="">
-                <li><a class="nav-link link-dark" href="clientes">Listar clientes</a></li> 
+                <li><a class="nav-link link-dark" href="clientes.jsp">Listar clientes</a></li> 
                 <li><a class="nav-link link-dark" href="cadastrar-cliente.jsp">Cadastrar clientes</a></li>
             </ul>
         </li>
@@ -96,7 +96,7 @@
                 </div>
             </a>
             <ul class="sub-menu collapse" id="produtos" style="">
-                <li><a class="nav-link link-dark" href="categorias">Listar categorias</a></li> 
+                <li><a class="nav-link link-dark" href="categorias.jsp">Listar categorias</a></li> 
                 <li><a class="nav-link link-dark" href="cadastrar-categoria.jsp">Cadastrar categoria</a></li>
                 <li><a class="nav-link link-dark" href="PageCadastarProduto">Cadastrar produto</a></li>
                 <li><a class="nav-link link-dark" href="ListarProdutos">Listar produto</a></li>
@@ -137,8 +137,8 @@
                 </div>
             </a>
             <ul class="sub-menu collapse" id="compra" style="">
-                <li><a class="nav-link link-dark" href="cadastrar-compra-produto">Cadastrar compra</a></li>
-                <li><a class="nav-link link-dark" href="compras">Listar compras</a></li> 
+                <li><a class="nav-link link-dark" href="cadastrar-compra-produto.jsp">Cadastrar compra</a></li>
+                <li><a class="nav-link link-dark" href="compras.jsp">Listar compras</a></li> 
             </ul>
         </li>
 

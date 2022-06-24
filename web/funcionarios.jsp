@@ -1,3 +1,4 @@
+<%@page import="dao.FuncionarioDAO"%>
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -13,6 +14,10 @@
 
     </head>
     <body>
+        <%
+            FuncionarioDAO dao = new FuncionarioDAO();
+            request.getSession(true).setAttribute("funcionarios", dao.listarFuncionarios());
+        %>
         <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
                         <div class="menu-lateral-trigger">

@@ -7,13 +7,11 @@ package controller.categoria;
 
 import controller.fornecedor.RemoverFornecedor;
 import dao.CategoriaDAO;
-import dao.ClienteDAO;
-import dao.FornecedorDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,11 +34,14 @@ public class RemoverCategoria extends HttpServlet {
         try {
             CategoriaDAO dao = new CategoriaDAO();
             int categoria = Integer.parseInt(request.getParameter("id"));
-            dao.removerCategoria(categoria);
-            response.sendRedirect("categorias");
+            dao.removerCategoria(categoria);            
         } catch (SQLException ex) {
+            request.setAttribute("chamou_cadastro", true);
+            request.setAttribute("mensagem", "Não é possivel deletar uma categoria caso ela tenha algum registro ativo no sistema.");
             Logger.getLogger(RemoverFornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
+        RequestDispatcher dis = request.getRequestDispatcher("categorias.jsp");
+        dis.forward(request, response);
     }
 }

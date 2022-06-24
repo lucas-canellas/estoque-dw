@@ -28,6 +28,7 @@ public class Login extends HttpServlet {
             
             if (dao.validarFuncionario(user)) {
                 
+                
                 switch (user.getPapel()) {
                     case "0":
                         request.getSession(true).setAttribute("papel", "Administrador");
@@ -48,6 +49,8 @@ public class Login extends HttpServlet {
                 
                 request.getSession(true).setAttribute("ativo", "ativo");                
                 request.getSession(true).setAttribute("nome", user.getNome());
+                request.getSession(true).setAttribute("user_id", user.getId());
+                
                 Cookie papel = new Cookie("papel", String.valueOf(user.getPapel()));
                 response.addCookie(papel);
                 response.sendRedirect("painel.jsp");
