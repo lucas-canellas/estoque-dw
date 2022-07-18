@@ -26,9 +26,8 @@ public class Login extends HttpServlet {
             Funcionario user = new Funcionario(cpf, senha);
             FuncionarioDAO dao = new FuncionarioDAO();
             
-            if (dao.validarFuncionario(user)) {
-                
-                
+            
+            if (dao.validarFuncionario(user)) { 
                 switch (user.getPapel()) {
                     case "0":
                         request.getSession(true).setAttribute("papel", "Administrador");
@@ -46,16 +45,14 @@ public class Login extends HttpServlet {
                         break;
                 }
                 
-                
                 request.getSession(true).setAttribute("ativo", "ativo");                
                 request.getSession(true).setAttribute("nome", user.getNome());
-                request.getSession(true).setAttribute("user_id", user.getId());
-                
-                Cookie papel = new Cookie("papel", String.valueOf(user.getPapel()));
-                response.addCookie(papel);
+                request.getSession(true).setAttribute("user_id", user.getId());               
+
                 response.sendRedirect("painel.jsp");
-            } else {                
-                request.setAttribute("falha", "Erro de autenticação");
+
+            } else {               
+
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
 

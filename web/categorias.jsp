@@ -15,9 +15,15 @@
     </head>
     <body>
         <%
+            String ativo = (String) session.getAttribute("ativo");
             CategoriaDAO dao = new CategoriaDAO();
             request.getSession(true).setAttribute("categorias", dao.listarCategoria());
+                        if (ativo == null) {
+                response.sendRedirect("index.jsp");
+            }
         %>
+        
+
         <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
             <div class="menu-lateral-trigger">

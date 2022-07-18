@@ -13,15 +13,21 @@
 
     </head>
     <body>
-
+        <%
+            String ativo = (String) session.getAttribute("ativo");
+            String papel = (String) session.getAttribute("papel");
+            if (ativo == null) {
+                response.sendRedirect("index.jsp");
+            }
+        %>
         <div class="d-flex">
-                        <div class="menu-lateral-trigger">
-            <jsp:include page="sidebar.jsp" />
+            <div class="menu-lateral-trigger">
+                <jsp:include page="sidebar.jsp" />
             </div>       
             <div class="w-100">
                 <%@include file="navbar.jsp" %>
                 <div class="w-100 body-container">
-                                <div class="title-bar">
+                    <div class="title-bar">
                         Editar compra
                     </div>
                     <div class="card  mt-5">               
@@ -45,7 +51,7 @@
                             <div>
                                 <label for="id_fornecedor">Fornecedor</label>
                                 <select class="form-control" name="id_fornecedor" aria-label="Default select example">
-                                                               
+
                                     <c:forEach var="fornecedor" items="${fornecedores}" varStatus="id">
                                         <option class="forn_value" value="${fornecedor.id}">${fornecedor.razao_social}</option>                                    
                                     </c:forEach>  
@@ -54,7 +60,7 @@
                             <div>
                                 <label for="id_produto">Produto:</label>
                                 <select class="form-control" name="id_produto" aria-label="Default select example">
-                                                              
+
                                     <c:forEach var="produto" items="${produtos}" varStatus="id">
                                         <option class="prod_value" value="${produto.id}">${produto.nome_produto}</option>                                    
                                     </c:forEach>  
@@ -78,7 +84,7 @@
                 </div>
             </div>
         </div>
-                            <jsp:include page="modal-sidebar.jsp" />   
+        <jsp:include page="modal-sidebar.jsp" />   
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

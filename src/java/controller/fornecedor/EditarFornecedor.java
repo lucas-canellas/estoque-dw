@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,12 +28,10 @@ public class EditarFornecedor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
 
         Fornecedor fornecedor = new Fornecedor();
         FornecedorDAO dao = new FornecedorDAO();
-        
+
         String id = request.getParameter("id");
         String razao_social = request.getParameter("razao_social");
         String cnpj = request.getParameter("cnpj");
@@ -43,6 +42,7 @@ public class EditarFornecedor extends HttpServlet {
         String cep = request.getParameter("cep");
         String telefone = request.getParameter("telefone");
         String email = request.getParameter("email");
+        request.setAttribute("chamou_cadastro", true);
         
         try {
             fornecedor.setId(Integer.parseInt(id));
@@ -56,8 +56,15 @@ public class EditarFornecedor extends HttpServlet {
             fornecedor.setTelefone(telefone);
             fornecedor.setEmail(email);
 
-            dao.editarFornecedor(fornecedor);
-            response.sendRedirect("fornecedores");
+            if (request.getSession(false).getAttribute("id_papel") != "2") {
+                request.setAttribute("mensagem", "Somente compradores podem editar o fornecedor.");
+            } else {
+                request.setAttribute("mensagem", "Cadastro editado com sucesso.");
+                dao.editarFornecedor(fornecedor);
+            }
+
+            RequestDispatcher dis = request.getRequestDispatcher("fornecedores.jsp");
+            dis.forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(EditarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }

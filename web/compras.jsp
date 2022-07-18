@@ -5,6 +5,8 @@
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,6 +22,7 @@
         <%
             CompraDAO dao = new CompraDAO();
             request.setAttribute("compras", dao.listarCompras());
+            String ativo = (String) session.getAttribute("ativo");
 
             FornecedorDAO fornecedores_dao = new FornecedorDAO();
             ProdutoDAO produto_dao = new ProdutoDAO();
@@ -28,7 +31,13 @@
             request.setAttribute("fornecedores", fornecedores_dao);
             request.setAttribute("produtos", produto_dao);
             request.setAttribute("funcionarios", funcionario_dao);
+            
+            if (ativo == null) {
+                response.sendRedirect("index.jsp");
+            }
         %>
+        
+
         <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
                         <div class="menu-lateral-trigger">
@@ -62,7 +71,7 @@
                                     <tr>
                                         <td><c:out value="${compras.id}" /></td>
                                         <td><c:out value="${compras.quantidade_compra}" /></td>
-                                        <td><c:out value="${compras.data_compra}" /></td>
+                                        <td><fmt:formatDate pattern = "dd-MM-yyyy" value = "${compras.data_compra}" /></td>
                                         <td><c:out value="${compras.valor_compra}" /></td>
                                         <td><c:out value="${fornecedores.fornecedorPorId(compras.id_fornecedor).getRazao_social()}" /></td>
                                         <td><c:out value="${produtos.produtoPorId(compras.id_produto).getNome_produto()}" /></td>

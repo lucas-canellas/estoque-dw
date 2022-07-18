@@ -16,9 +16,17 @@
     </head>
     <body>
         <%
+            String ativo = (String) session.getAttribute("ativo");
+            String papel = (String) session.getAttribute("papel");
             ClienteDAO dao = new ClienteDAO();
             request.getSession(true).setAttribute("clientes", dao.listarCliente());
+
+            if (ativo == null) {
+                response.sendRedirect("index.jsp");
+            }
         %>
+
+
         <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
             <div class="menu-lateral-trigger">
@@ -32,8 +40,6 @@
                     </div>
 
                     <div class=" mt-5">
-
-
                         <div class="card">
                             <table class="table table-striped">
                                 <thead>
@@ -49,7 +55,6 @@
                                         <th>Telefone</th>
                                         <th>Email</th>
                                         <th>Ações</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,13 +38,22 @@ public class EditarProduto extends HttpServlet {
         
         String id = request.getParameter("id");
         String liberado_venda = request.getParameter("liberado_venda");
-
-        
+        request.setAttribute("chamou_cadastro", true);        
         try {
-            produto.setId(Integer.parseInt(id));
-            produto.setLiberado_venda(liberado_venda);            
-            dao.alterarLiberacao(produto);
-            response.sendRedirect("ListarProdutos");
+            
+            if (request.getSession(false).getAttribute("id_papel") != "2") {
+                request.setAttribute("mensagem", "Somente compradores podem alterar o status de liberação do produto.");
+            } else {
+                request.setAttribute("mensagem", "Alteração realizada com sucesso.");
+                produto.setId(Integer.parseInt(id));
+                produto.setLiberado_venda(liberado_venda);            
+                dao.alterarLiberacao(produto);
+            }
+            
+            RequestDispatcher dis = request.getRequestDispatcher("produtos.jsp");
+            dis.forward(request, response);
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(EditarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }

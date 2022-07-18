@@ -48,6 +48,7 @@ public class CadastarCompra extends HttpServlet {
             Integer quantidade_anterior = produto.getQuantidade_disponivel();
             Integer nova_quantidade = quantidade_anterior + quantidade_compra;
             request.setAttribute("chamou_cadastro", true);
+            
             if (request.getSession(false).getAttribute("id_papel") != "2") {
                 request.setAttribute("mensagem", "Somente compradores podem cadastrar a compra.");
             } else if (quantidade_compra <= 0) {

@@ -13,6 +13,13 @@
 
     </head>
     <body>
+                <%
+            String ativo = (String) session.getAttribute("ativo");
+            String papel = (String) session.getAttribute("papel");
+            if (ativo == null) {
+                response.sendRedirect("index.jsp");
+            }
+        %>
 
         <div class="d-flex">
             <div class="menu-lateral-trigger">
@@ -28,7 +35,7 @@
                         <form class="form-group" method="POST" action="CadastrarCategoria" >
                             <div>
                                 <label for="nome_categoria">Razão Social:</label>
-                                <input class="form-control" type="text" name="nome_categoria" id="nome_categoria" />
+                                <input class="form-control" type="text" required maxlength="50" name="nome_categoria" id="nome_categoria" />
                             </div>
 
                             <div class=" mt-3">

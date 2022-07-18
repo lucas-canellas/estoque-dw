@@ -32,19 +32,24 @@ public class RemoverCliente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession(false);
-        try {            
-            ClienteDAO dao = new ClienteDAO();
-            int cliente = Integer.parseInt(request.getParameter("id"));
-            dao.removerCliente(cliente);
+
+        request.setAttribute("chamou_cadastro", true);
+        try {
+            if (request.getSession(false).getAttribute("id_papel") != "1") {
+                request.setAttribute("mensagem", "Somente vendedores podem excluir um cliente.");
+            } else {
+                request.setAttribute("mensagem", "Cliente removido com sucesso.");
+                ClienteDAO dao = new ClienteDAO();
+                int cliente = Integer.parseInt(request.getParameter("id"));
+                dao.removerCliente(cliente);
+            }
+
         } catch (SQLException ex) {
-            request.setAttribute("chamou_cadastro", true);
             request.setAttribute("mensagem", "Não é possivel deletar um cliente caso ele tenha algum registro ativo no sistema.");
         }
 
         RequestDispatcher dis = request.getRequestDispatcher("clientes.jsp");
         dis.forward(request, response);
-
 
     }
 }

@@ -82,7 +82,7 @@
     object-fit: cover;
 }
 
-#fornecedores, #funcionarios, #clientes, #produtos, #compra, #venda{
+#fornecedores, #funcionarios, #clientes, #produtos, #compra, #venda, #controle-produtos, #categorias{
     background-color: #0069d910;
     border-radius: 15px;
 }

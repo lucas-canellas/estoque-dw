@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +36,7 @@ public class EditarCliente extends HttpServlet {
         String cep = request.getParameter("cep");
         String telefone = request.getParameter("telefone");
         String email = request.getParameter("email");
+        request.setAttribute("chamou_cadastro", true);
         
         try {
             cliente.setId(Integer.parseInt(id));
@@ -47,9 +49,19 @@ public class EditarCliente extends HttpServlet {
             cliente.setCep(cep);
             cliente.setTelefone(telefone);
             cliente.setEmail(email);
+            
+             if (request.getSession(false).getAttribute("id_papel") != "1") {
+                request.setAttribute("mensagem", "Somente vendedores podem editar um cliente.");
+            } else {
+                 request.setAttribute("mensagem", "Cliente editado com sucesso.");
+                 dao.editarCliente(cliente);
+            }
+             
+            RequestDispatcher dis = request.getRequestDispatcher("clientes.jsp");
+            dis.forward(request, response);
 
-            dao.editarCliente(cliente);
-            response.sendRedirect("clientes");
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(EditarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }

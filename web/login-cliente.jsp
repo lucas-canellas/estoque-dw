@@ -3,7 +3,7 @@
 
 <html>
     <head>
-        <title>Login</title>
+        <title>Login Cliente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">        
@@ -15,32 +15,23 @@
     <body class="d-flex justify-content-center align-items-center ">
 
         <div class="container-card-login " >
-            <div class="card-login">
-                <h3 id="titulo-login">ESTOQUE</h3>
+            <div class="card-login">                
+                <h3 id="titulo-login">LOGIN CLIENTE</h3>
                 <p id="subtitulo-login">Entre abaixo com seus dados:</p>
                 <div class="card-body">
-                    <form id="login_form"  action="login" method="POST"> 
+                    <form id="login_form"  action="logincliente" method="POST"> 
 
                         <div class="input-group mb-2 mr-sm-2">
-                            <input type="text" class="form-control texto-input" required name="cpf" id="cpf"
-
-                                   placeholder="Usuário">
-                        </div>
-                        <div class="input-group mb-2 mr-sm-2">
-
-                            <input type="password" class="form-control texto-input" required name="senha" id="senha"
-                                   placeholder="Senha">
-                        </div>                       
+                            <input type="text" class="form-control texto-input" required name="cpf" id="cpf" placeholder="CPF CLIENTE">
+                        </div>                      
                         <div class="mt-3">
                             <div>
                                 <button type="submit" value="login" class="button-entrar-login">Entrar</button>
                             </div>
                         </div>
                     </form>
-                    
                     <p class="mb-1 mt-3">
-                        <strong style="color: #005cbf">Area clientes</strong> <br>
-                        <a href="login-cliente.jsp" class="text-secondary ">Clique aqui para acessar a área exclusiva para cliente</a>
+                        <a href="index.jsp" class="text-secondary ">Voltar para o login de funcionários</a>
                     </p>
                 </div>
 

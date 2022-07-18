@@ -13,6 +13,13 @@
 
     </head>
     <body>
+                        <%
+            String ativo = (String) session.getAttribute("ativo");
+            String papel = (String) session.getAttribute("papel");
+            if (ativo == null) {
+                response.sendRedirect("index.jsp");
+            }
+        %>
         <div class="d-flex">
                         <div class="menu-lateral-trigger">
             <jsp:include page="sidebar.jsp" />

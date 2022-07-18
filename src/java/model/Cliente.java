@@ -1,7 +1,7 @@
 package model;
 
-
 public class Cliente {
+
     private Integer id;
     private String nome;
     private String cpf;
@@ -12,13 +12,16 @@ public class Cliente {
     private String cep;
     private String telefone;
     private String email;
-    
+
     public Cliente() {
 
     }
-    
 
-    public Cliente(String nome,String cpf, String endereco,String bairro, String cidade, String uf, String cep,String telefone, String email ) {
+    public Cliente(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Cliente(String nome, String cpf, String endereco, String bairro, String cidade, String uf, String cep, String telefone, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -29,7 +32,6 @@ public class Cliente {
         this.telefone = telefone;
         this.email = email;
     }
-    
 
     /**
      * @return the id
@@ -170,6 +172,5 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
 }

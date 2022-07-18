@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,7 +52,8 @@ public class CadastrarProduto extends HttpServlet {
 
         try { 
             dao.cadastrarProduto(produto);
-            response.sendRedirect("painel.jsp");
+            RequestDispatcher dis = request.getRequestDispatcher("produtos.jsp");
+            dis.forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }

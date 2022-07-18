@@ -53,23 +53,17 @@ public class CadastroVenda extends HttpServlet {
             Integer nova_quantidade = quantidade_anterior - quantidade_venda;
 
             if (produto.getQuantidade_disponivel() < quantidade_venda && request.getSession(false).getAttribute("id_papel") == "1") {
-
                 request.setAttribute("mensagem", "Não existe produto disponível.");
-
             } else if ("N".equals(produto.getLiberado_venda()) && request.getSession(false).getAttribute("id_papel") == "1") {
-
                 request.setAttribute("mensagem", "Produto não liberado para venda.");
-
             } else if (request.getSession(false).getAttribute("id_papel") != "1") {
-
-                request.setAttribute("mensagem", "Somente vendedores podem vender.");
-
+                request.setAttribute("mensagem", "Somente vendedores podem realizar a venda.");
+            }  else if (quantidade_venda == 0) {
+                request.setAttribute("mensagem", "A quantidade da venda deve ser maior que 0 (zero).");
             } else {
-
                 dao_venda.cadastrarVenda(venda);
                 dao_produto.decrementarQuantidade(venda, nova_quantidade);
                 request.setAttribute("mensagem", "Dados da venda cadastrado com sucesso");
-
             }
             RequestDispatcher dis = request.getRequestDispatcher("cadastrar-venda-produto.jsp");
             dis.forward(request, response);

@@ -117,5 +117,9 @@ body {
 }
 
 
-/*NAVBAR*/
+#mensagemStatusModal {
+    border-top: 2px solid #007bff;
+}
+
+
 

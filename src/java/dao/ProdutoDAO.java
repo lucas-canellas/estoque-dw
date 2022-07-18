@@ -70,6 +70,31 @@ public class ProdutoDAO extends DAO {
         return lista;
 
     }
+    
+        public List<Produto> listarProdutoDisponivel() throws SQLException {
+
+        String sql = "SELECT * FROM produtos WHERE produtos.quantidade_disponível > 0 AND produtos.liberado_venda = 'S'";
+        conectar(sql);
+
+        List<Produto> lista = new ArrayList<>();
+        ResultSet rs = stm.executeQuery();
+
+        while (rs.next()) {
+            Produto p = new Produto();
+            p.setId(rs.getInt("produtos.id"));
+            p.setNome_produto(rs.getString("produtos.nome_produto"));
+            p.setDescricao(rs.getString("produtos.descricao"));
+            p.setPreco_compra(rs.getDouble("produtos.preco_compra"));
+            p.setPreco_venda(rs.getDouble("produtos.preco_venda"));
+            p.setQuantidade_disponivel(rs.getInt("produtos.quantidade_disponível"));
+            p.setLiberado_venda(rs.getString("produtos.liberado_venda"));
+            p.setId_categoria(rs.getInt("produtos.id_categoria"));
+
+            lista.add(p);
+        }
+        return lista;
+
+    }
 
     public void atualizarPrecoCompra(Compra compra) throws SQLException {
 

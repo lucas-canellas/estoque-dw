@@ -31,16 +31,22 @@ public class RemoverFornecedor extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(false);
+        request.setAttribute("chamou_cadastro", true);
         try {
-            FornecedorDAO dao = new FornecedorDAO();
-            int fornecedor = Integer.parseInt(request.getParameter("id"));
-            dao.removerFornecedor(fornecedor);
-            
+
+            if (request.getSession(false).getAttribute("id_papel") != "2") {
+                request.setAttribute("mensagem", "Somente compradores podem remover um fornecedor.");
+            } else {
+                request.setAttribute("mensagem", "Fornecedor removido com sucesso.");
+                FornecedorDAO dao = new FornecedorDAO();
+                int fornecedor = Integer.parseInt(request.getParameter("id"));
+                dao.removerFornecedor(fornecedor);
+            }
+
         } catch (SQLException ex) {
-            request.setAttribute("chamou_cadastro", true);
             request.setAttribute("mensagem", "Não é possivel deletar um fornecedor caso ele tenha algum registro ativo no sistema.");
         }
-        
+
         RequestDispatcher dis = request.getRequestDispatcher("fornecedores.jsp");
         dis.forward(request, response);
 

@@ -37,8 +37,10 @@
                             </div>
                         </div>
                     </form>
+                    
                     <p class="mb-1 mt-3">
-                        <a href="" class="text-secondary">Esqueci minha senha</a>
+                        <strong style="color: #005cbf">Area clientes</strong> <br>
+                        <a href="login-cliente.jsp" class="text-secondary ">Clique aqui para acessar a área exclusiva para cliente</a>
                     </p>
                 </div>
 
@@ -50,6 +52,7 @@
         <script src="jquery-3.4.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-    </body>
+
+</body>
 </html>
 

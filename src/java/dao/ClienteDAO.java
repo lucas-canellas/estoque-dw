@@ -1,15 +1,26 @@
 package dao;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Cliente;
-import model.Fornecedor;
-
 
 public class ClienteDAO extends DAO {
+    
+        public boolean validarCliente(Cliente cliente) throws SQLException {
+        String sql = "SELECT id, cpf, nome FROM clientes WHERE cpf = '" + cliente.getCpf() + "'";
+        conectar(sql);
+        ResultSet rs = stm.executeQuery(sql);
+        String cpf_temp = null;
+        while (rs.next()) {
+            cliente.setId(rs.getInt("id"));
+            cliente.setNome(rs.getString("nome"));
+            cpf_temp = (rs.getString("cpf"));
+        }
+        fechar();
+        return cpf_temp!= null && cpf_temp.equals(cliente.getCpf());
+    }
 
     public void cadastrarCliente(Cliente cliente) throws SQLException {
         String sql = "INSERT INTO clientes (nome, cpf, endereco, bairro, cidade, uf, cep, telefone, email) " + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -56,7 +67,8 @@ public class ClienteDAO extends DAO {
         return lista;
 
     }
-       public void removerCliente(int id_cliente) throws SQLException {
+
+    public void removerCliente(int id_cliente) throws SQLException {
         String sql = "DELETE FROM clientes "
                 + "WHERE id = ? ; ";
         conectar(sql);
@@ -64,8 +76,8 @@ public class ClienteDAO extends DAO {
         stm.execute();
         fechar();
     }
-       
-       public Cliente clientePorId(int id_cliente) throws SQLException {
+
+    public Cliente clientePorId(int id_cliente) throws SQLException {
         String sql = "SELECT * FROM clientes "
                 + "WHERE clientes.id = ? ";
         conectar(sql);
@@ -75,22 +87,21 @@ public class ClienteDAO extends DAO {
         while (rs.next()) {
             c.setId(rs.getInt("clientes.id"));
             c.setNome(rs.getString("clientes.nome"));
-            c.setCpf(rs.getString("clientes.cpf")); 
+            c.setCpf(rs.getString("clientes.cpf"));
             c.setEndereco(rs.getString("clientes.endereco"));
             c.setCidade(rs.getString("clientes.cidade"));
             c.setBairro(rs.getString("clientes.bairro"));
             c.setTelefone(rs.getString("clientes.telefone"));
             c.setUf(rs.getString("clientes.uf"));
             c.setEmail(rs.getString("clientes.email"));
-            c.setCep(rs.getString("clientes.cep"));           
+            c.setCep(rs.getString("clientes.cep"));
 
-            
         }
         fechar();
         return c;
     }
-       
-       public void editarCliente(Cliente cliente) throws SQLException {
+
+    public void editarCliente(Cliente cliente) throws SQLException {
         String sql = "UPDATE clientes SET nome = ?, cpf = ?, endereco = ?, cidade = ?, bairro = ?, telefone = ?, uf = ?, email = ?, cep = ? WHERE id = ? ";
         conectar(sql);
         stm.setString(1, cliente.getNome());
@@ -102,12 +113,33 @@ public class ClienteDAO extends DAO {
         stm.setString(7, cliente.getUf());
         stm.setString(8, cliente.getEmail());
         stm.setString(9, cliente.getCep());
-        
 
         stm.setInt(10, cliente.getId());
         stm.execute();
         fechar();
     }
-    
+
+    public Cliente clientePorCpf(String cpf) throws SQLException {
+        String sql = "SELECT * FROM clientes "
+                + "WHERE clientes.cpf = ? ";
+        conectar(sql);
+        stm.setString(1, cpf);
+        Cliente c = new Cliente();
+        ResultSet rs = stm.executeQuery();
+        while (rs.next()) {
+            c.setId(rs.getInt("clientes.id"));
+            c.setNome(rs.getString("clientes.nome"));
+            c.setCpf(rs.getString("clientes.cpf"));
+            c.setEndereco(rs.getString("clientes.endereco"));
+            c.setCidade(rs.getString("clientes.cidade"));
+            c.setBairro(rs.getString("clientes.bairro"));
+            c.setTelefone(rs.getString("clientes.telefone"));
+            c.setUf(rs.getString("clientes.uf"));
+            c.setEmail(rs.getString("clientes.email"));
+            c.setCep(rs.getString("clientes.cep"));
+        }
+        fechar();
+        return c;
+    }
 
 }

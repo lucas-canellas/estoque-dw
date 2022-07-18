@@ -16,9 +16,15 @@
     </head>
     <body>
         <%
+            String ativo = (String) session.getAttribute("ativo");
             FornecedorDAO dao = new FornecedorDAO();
             request.getSession(true).setAttribute("fornecedores", dao.listarFornecedor());
+                        if (ativo == null) {
+                response.sendRedirect("index.jsp");
+            }
         %>
+        
+
         <%@include file="./modal/mensagem-status.jsp" %> 
         <div class="d-flex">
             <div class="menu-lateral-trigger">
